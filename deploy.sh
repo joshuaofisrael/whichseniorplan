@@ -1,5 +1,6 @@
 #!/bin/bash
 # Build, QA, and the legal gate. Does not push. Usage: ./deploy.sh [--launch]
+# --launch fails while GA4_ID in _build/build.py is empty.
 set -e
 cd "$(dirname "$0")"
 MODE=""

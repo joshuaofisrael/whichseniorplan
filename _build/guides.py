@@ -7,7 +7,7 @@ def add(**kw):
 
 add(
 path="/guides/original-medicare-vs-medicare-advantage/",
-title="Original Medicare or Medicare Advantage | Which Senior Plan",
+title="Which Medicare Path Should I Pick?",
 h1="Original Medicare or Medicare Advantage",
 desc="How Original Medicare and Medicare Advantage differ on doctors, drugs, and out of pocket limits. Not a plan recommendation.",
 body="""
@@ -91,7 +91,7 @@ related=[("/guides/original-medicare-vs-medicare-advantage/", "Compare the two p
 
 add(
 path="/guides/medigap-plan-letters/",
-title="Medigap Plan Letters A through N | Which Senior Plan",
+title="Which Medigap Letter Should I Compare?",
 h1="Medigap plan letters",
 desc="What Medigap letters A through N cover in 2026, who can buy Plan C or F, and why Massachusetts, Minnesota, and Wisconsin differ.",
 body="""
@@ -159,7 +159,7 @@ related=[("/guides/extra-help/", "Extra Help"), ("/guides/general-enrollment-and
 
 add(
 path="/guides/enrollment-periods/",
-title="Medicare Enrollment Periods and Deadlines | Which Senior Plan",
+title="Which Medicare Enrollment Window Applies?",
 h1="Medicare enrollment periods and deadlines",
 desc="The main Medicare deadlines: your first 7 month window, October 15 to December 7, January 1 to March 31, and special situations.",
 body="""
@@ -225,7 +225,7 @@ related=[("/guides/enrollment-periods/", "All the windows"), ("/guides/special-e
 
 add(
 path="/guides/open-enrollment/",
-title="Medicare Open Enrollment, October 15 to December 7 | Which Senior Plan",
+title="Which Fall Medicare Deadline Should I Use?",
 h1="Open enrollment: October 15 to December 7",
 desc="From October 15 through December 7 you can change Advantage and drug plans. Coverage starts January 1.",
 body="""
@@ -534,7 +534,7 @@ related=[("/states/", "State Medicaid agencies"), ("/guides/medicare-savings-pro
 
 add(
 path="/guides/how-to-compare-plans/",
-title="How to Compare Medicare Plans | Which Senior Plan",
+title="Which Medicare Plan Should I Compare?",
 h1="How to compare plans without a sales pitch",
 desc="Use Medicare.gov Plan Finder or a free SHIP counselor. We do not list plan names, star ratings, or premiums, and we do not collect leads.",
 body="""
@@ -568,7 +568,7 @@ related=[("/guides/ship-counseling/", "SHIP counseling"), ("/guides/original-med
 
 add(
 path="/guides/medigap-open-enrollment/",
-title="Medigap Open Enrollment and Guaranteed Issue | Which Senior Plan",
+title="Which Medigap Enrollment Window Is Mine?",
 h1="Medigap open enrollment",
 desc="You get one 6 month Medigap open enrollment when you are 65 or older and you have Part B. It does not repeat every fall.",
 body="""
