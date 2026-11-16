@@ -17,7 +17,7 @@ PUBLISHED = "2026-11-16"
 CHECKED = "16 Nov 2026"
 INDEXNOW_KEY = "c641d3cb68a0047708c9064020aa6977"
 CF_BEACON_TOKEN = "eac63f2b5dbc4539a2d95249baab6472"
-GA4_ID = ""  # Owner pastes a G-XXXXXXXXXX measurement id. Empty fails the launch check.
+GA4_ID = "G-F440SDE14K"  # Owner pastes a G-XXXXXXXXXX measurement id. Empty fails the launch check.
 LEGAL_LINE = "© 2026 Joshua Israel Ventures LLC. All rights reserved. Which Senior Plan is a trade name of Joshua Israel Ventures LLC, a Florida limited liability company."
 E = html.escape
 STATES = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "states.json"), encoding="utf-8"))
