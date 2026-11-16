@@ -12,13 +12,15 @@ v1 is built with `noindex` on every page. Root relative paths and the CNAME file
 
 ```
 python3 _build/build.py            # noindex, root paths, CNAME, no analytics beacon
-python3 _build/build.py --launch   # removes noindex and adds the Cloudflare beacon
+python3 _build/build.py --launch   # indexable, Cloudflare beacon, GA4 after consent
 python3 _build/check.py [--launch]
 python3 _build/legal_gate.py check
 ./deploy.sh [--launch]             # build + check + legal gate, does not push
 ```
 
-`LAUNCH` in `_build/build.py` is the single flag (`--launch`). Dates are the constants `PUBLISHED` (`2026-11-16`) and `CHECKED` (`16 Nov 2026`). Do not replace them with the build clock.
+The exact launch command is in LAUNCH-NOTES.md. `check.py --launch` fails while `GA4_ID` in `_build/build.py` is empty.
+
+`LAUNCH` in `_build/build.py` is the single flag (`--launch`). Dates are the constants `PUBLISHED` (`2026-11-16`) and `CHECKED` (`16 Nov 2026`). Do not replace them with the build clock. `GA4_ID` stays `""` until the owner pastes a `G-` measurement id.
 
 ## What v1 contains
 

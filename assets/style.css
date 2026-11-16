@@ -49,6 +49,10 @@ footer.site{background:var(--navy);color:#eef3f6;padding:1.4rem 0;margin-top:1re
 footer.site a{color:#ffd9a0}
 .flinks{line-height:1.9}
 .legal-line{font-size:.9rem;color:#c9d4dc}
+.prose img{height:auto;max-width:8rem;background:#fff;border-radius:12px}
+.consent{position:fixed;z-index:40;left:0;right:0;bottom:0;background:#12324a;color:#fff;padding:.75rem 0;box-shadow:0 -6px 18px rgba(0,0,0,.18)}
+.consent .wrap{display:flex;flex-wrap:wrap;gap:.55rem .6rem;align-items:center}
+.consent p{margin:0;flex:1 1 18rem}
 @media (max-width:640px){
   .cols{columns:1}
   h1{font-size:1.6rem}
