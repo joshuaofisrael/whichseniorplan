@@ -57,7 +57,7 @@ def crumbs_html(crumbs):
             items.append(f'<li aria-current="page">{E(n)}</li>')
     return '<nav class="crumbs" aria-label="Breadcrumb"><ol>' + "".join(items) + "</ol></nav>"
 
-def page(path, title, desc, body, jsonld=None, crumbs=None, noindex=False, legal=False, kind="website"):
+def page(path, title, desc, body, jsonld=None, crumbs=None, noindex=False, legal=False, kind="website", lastmod=None):
     if len(title) >= 60:
         raise SystemExit(f"title {len(title)} {title}")
     if len(desc) > 155 or len(desc) < 40:
@@ -66,7 +66,7 @@ def page(path, title, desc, body, jsonld=None, crumbs=None, noindex=False, legal
     if path == "/404.html":
         canon = url("/404.html")
     if not noindex:
-        PAGES.append((path if path != "/404.html" else "/404.html", PUBLISHED))
+        PAGES.append((path if path != "/404.html" else "/404.html", lastmod or PUBLISHED))
     ld = []
     if path == "/":
         ld.append({"@context": "https://schema.org", "@type": "WebSite", "name": BRAND, "url": BASE,
@@ -139,15 +139,17 @@ def faq_ld(faqs):
     return {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
         {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faqs]}
 
-def article_ld(h1, path):
+def article_ld(h1, path, published=None, modified=None):
+    pub = published or PUBLISHED
+    mod = modified or pub
     return {"@context": "https://schema.org", "@type": "Article", "headline": h1,
-            "datePublished": PUBLISHED, "dateModified": PUBLISHED,
+            "datePublished": pub, "dateModified": mod,
             "image": url("/og.png"), "mainEntityOfPage": url(path),
             "author": {"@type": "Organization", "name": BRAND, "url": BASE},
             "publisher": {"@type": "Organization", "name": BRAND, "url": BASE, "logo": {"@type": "ImageObject", "url": url("/logo.png")}}}
 
-def byline():
-    return f'<p class="byline">By {BRAND}. Last checked {CHECKED}.</p>'
+def byline(checked=None):
+    return f'<p class="byline">By {BRAND}. Last checked {checked or CHECKED}.</p>'
 
 def notice():
     return '<p class="notice">General information from public pages. This is not insurance advice, not a recommendation, and not a government site.</p>'
@@ -157,14 +159,17 @@ def guide_pages():
         related = list(g["related"])
         if not any(p == "/guides/" for p, _n in related):
             related.append(("/guides/", "All guides"))
-        body = f'''<article class="prose"><h1>{E(g["h1"])}</h1>{byline()}{notice()}
+        gchecked = g.get("checked", CHECKED)
+        gpub = g.get("published", PUBLISHED)
+        gmod = g.get("modified", gpub)
+        body = f'''<article class="prose"><h1>{E(g["h1"])}</h1>{byline(gchecked)}{notice()}
 {expand(g["body"])}
 {faq_block(g["faqs"])}
 <section class="sources"><h2>Sources</h2>{src_list(g["sources"])}
-<p class="note">Last checked {CHECKED}. We cite the page we read. If a figure is for 2026, the source labels it as 2026.</p></section>
+<p class="note">Last checked {gchecked}. We cite the page we read. If a figure is for 2026, the source labels it as 2026.</p></section>
 <p class="related">''' + " · ".join(f'<a href="{u(p)}">{E(n)}</a>' for p, n in related) + "</p></article>"
-        write(g["path"], page(g["path"], g["title"], g["desc"], body, [article_ld(g["h1"], g["path"]), faq_ld(g["faqs"])],
-                              [("/", "Home"), ("/guides/", "Guides"), (g["path"], g["h1"])], kind="article"))
+        write(g["path"], page(g["path"], g["title"], g["desc"], body, [article_ld(g["h1"], g["path"], gpub, gmod), faq_ld(g["faqs"])],
+                              [("/", "Home"), ("/guides/", "Guides"), (g["path"], g["h1"])], kind="article", lastmod=gmod))
 
 def guides_index():
     groups = [
@@ -174,6 +179,7 @@ def guides_index():
         ("Deadlines", [5, 6, 7, 8, 9, 10]),
         ("Costs and help", [11, 12, 13, 14, 16, 17]),
         ("Comparing", [18]),
+        ("Programs and benefits", [20, 21]),
     ]
     # indexes into GUIDES must match add() order
     blocks = []
@@ -182,13 +188,14 @@ def guides_index():
         blocks.append(f"<h2>{E(name)}</h2><ul>{items}</ul>")
     faqs = [
         ("Which guide should I read first?", "Start with Original Medicare or Medicare Advantage, then open the deadline or the cost that applies to you."),
-        ("How many national guides are here?", "Twenty explainers on the federal rules, plus a page for each state and the District of Columbia."),
+        ("How many national guides are here?", f"{len(GUIDES)} explainers on the federal rules, plus a page for each state and the District of Columbia."),
     ]
-    body = f'<article class="prose"><h1>Guides</h1>{byline()}{notice()}<p>Twenty explainers on the federal rules, plus a page for each state and the District of Columbia. Start with the choice between Original Medicare and Medicare Advantage, then open the deadline or the cost that applies to you.</p>{"".join(blocks)}<p><a href="{u("/states/")}">State contacts</a> · <a href="{u("/guides/how-to-compare-plans/")}">How to compare plans</a></p>{faq_block(faqs)}</article>'
-    desc = "Twenty plain English guides to Medicare plan choices, deadlines, Medigap letters, Part D, and state help lines."
+    GUIDES_INDEX_UPDATED = "2026-11-18"
+    body = f'<article class="prose"><h1>Guides</h1>{byline(GUIDES_INDEX_UPDATED)}{notice()}<p>{len(GUIDES)} explainers on the federal rules, plus a page for each state and the District of Columbia. Start with the choice between Original Medicare and Medicare Advantage, then open the deadline or the cost that applies to you.</p>{"".join(blocks)}<p><a href="{u("/states/")}">State contacts</a> · <a href="{u("/guides/how-to-compare-plans/")}">How to compare plans</a></p>{faq_block(faqs)}</article>'
+    desc = "Plain English guides to Medicare plan choices, deadlines, Medigap letters, Part D, PACE, and state help lines."
     write("/guides/", page("/guides/", "Which Medicare Guide Should I Read?", desc, body,
-                           [article_ld("Guides", "/guides/"), faq_ld(faqs)],
-                           [("/", "Home"), ("/guides/", "Guides")], kind="article"))
+                           [article_ld("Guides", "/guides/", modified=GUIDES_INDEX_UPDATED), faq_ld(faqs)],
+                           [("/", "Home"), ("/guides/", "Guides")], kind="article", lastmod=GUIDES_INDEX_UPDATED))
 
 def medigap_note(s):
     name = s["name"]
@@ -301,13 +308,13 @@ def home():
 <p class="btnrow"><a class="btn" href="{u("/guides/original-medicare-vs-medicare-advantage/")}">Compare the two paths</a> <a class="btn alt" href="{u("/guides/enrollment-periods/")}">See the deadlines</a></p>
 </section>
 <h2>Start here</h2><ul class="cards">{cards}</ul>
-<h2>All 20 guides</h2><p><a href="{u("/guides/")}">Browse every explainer</a>, from the 2026 premium table to Extra Help and Medigap open enrollment. When you are ready to look at real contracts, read <a href="{u("/guides/how-to-compare-plans/")}">how to compare plans</a>.</p>
+<h2>All {len(GUIDES)} guides</h2><p><a href="{u("/guides/")}">Browse every explainer</a>, from the 2026 premium table to Extra Help, PACE, and Medigap open enrollment. When you are ready to look at real contracts, read <a href="{u("/guides/how-to-compare-plans/")}">how to compare plans</a>.</p>
 <h2>How the numbers are chosen</h2>
 <p>A dollar amount appears only when an official page labels it for 2026. Private plan premiums and plan names do not appear, because we will not invent them. The editorial rules are public on the <a href="{u("/editorial-policy/")}">editorial and sources policy</a>.</p>
 {faq_block(faqs)}'''
     write("/", page("/", "Which Senior Health Plan Should I Pick?",
                     "Which senior health plan should you look at? Plain English guides to Original Medicare, Advantage, Medigap, Part D, and free counseling.",
-                    body, faq_ld(faqs)))
+                    body, faq_ld(faqs), lastmod="2026-11-18"))
 
 def simple(path, title, desc, h1, inner, legal=False):
     body = f'<article class="prose"><h1>{E(h1)}</h1>{inner}</article>'

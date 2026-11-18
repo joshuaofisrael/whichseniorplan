@@ -69,9 +69,11 @@ path="/guides/medicare-advantage/",
 title="What Medicare Advantage Is | Which Senior Plan",
 h1="What Medicare Advantage is",
 desc="Medicare Advantage is a private plan that delivers Part A and Part B, often with drugs. Networks, premiums, and the yearly cap.",
+modified="2026-11-18",
+checked="18 Nov 2026",
 body="""
 <div class="answer"><p><strong>Short version:</strong> Medicare Advantage is private health coverage that Medicare has approved. It provides your Part A and Part B benefits. Most plans include drug coverage. You must keep paying the Part B premium. Plan premiums, networks, and copays are not set on this site.</p></div>
-<p>Medicare.gov calls these plans Part C. They are an alternative to Original Medicare for health and drug needs. The plan may require you to use doctors in its network and to get approval before some services or drugs. Out of pocket costs usually differ from Original Medicare. Plans have a yearly limit on what you pay for covered health services. After you hit that limit, the plan pays 100 percent of those covered services for the rest of the year.</p>
+<p>Medicare.gov calls these plans Part C. They are an alternative to Original Medicare for health and drug needs. The plan may require you to use doctors in its network and to get approval before some services or drugs. Out of pocket costs usually differ from Original Medicare. Plans have a yearly limit on what you pay for covered health services. After you hit that limit, the plan pays 100 percent of those covered services for the rest of the year. Some plans also lower the Part B premium a member pays, a feature Medicare.gov calls a Part B premium reduction and that ads sometimes call a [[/guides/medicare-give-back-benefit/|give back benefit]]; it is part of the plan, not a separate check.</p>
 <p>Most plans offer extra benefits that Original Medicare does not cover, such as some vision, hearing, and dental care. Extras, premiums, and rules differ by plan and by county. We do not publish company names, star ratings, or premiums, because those change and we will not invent them. Compare plans on Medicare.gov or with a [[/guides/ship-counseling/|SHIP counselor]].</p>
 <p>You generally need both Part A and Part B to join a Medicare Advantage plan. You can join during your [[/guides/initial-enrollment-period/|Initial Enrollment Period]], the [[/guides/open-enrollment/|fall open enrollment]] from October 15 through December 7, or a special enrollment period if you qualify. If you are already in a Medicare Advantage plan, you also have the [[/guides/medicare-advantage-open-enrollment/|Medicare Advantage open enrollment period]] from January 1 through March 31.</p>
 <p>A Medigap policy is for Original Medicare. Medicare.gov says you can buy Medigap only if you have Original Medicare. Do not assume a Medigap letter works inside an Advantage plan.</p>
@@ -513,9 +515,11 @@ path="/guides/medicare-and-medicaid/",
 title="Medicare and Medicaid Together | Which Senior Plan",
 h1="Medicare and Medicaid together",
 desc="Medicare is federal. Medicaid is run by your state. You can have both. Medicare Savings Programs are one kind of help, not the whole of Medicaid.",
+modified="2026-11-18",
+checked="18 Nov 2026",
 body="""
 <div class="answer"><p><strong>Short version:</strong> Medicare is federal health insurance for people 65 and older and for some younger people with disabilities. Medicaid is a joint federal and state program. If you qualify, you can have both. The state decides Medicaid eligibility.</p></div>
-<p>Having both is often called being dual eligible. Full Medicaid can cover services Medicare does not, and it can lead to [[/guides/extra-help/|Extra Help]] with drugs. A [[/guides/medicare-savings-programs/|Medicare Savings Program]] is narrower. QMB, SLMB, QI, and QDWI help with Medicare premiums and, in the case of QMB, Medicare cost sharing. They are not the same thing as full Medicaid, even though the state Medicaid agency usually takes the application.</p>
+<p>Having both is often called being dual eligible. Full Medicaid can cover services Medicare does not, and it can lead to [[/guides/extra-help/|Extra Help]] with drugs. A [[/guides/medicare-savings-programs/|Medicare Savings Program]] is narrower. QMB, SLMB, QI, and QDWI help with Medicare premiums and, in the case of QMB, Medicare cost sharing. They are not the same thing as full Medicaid, even though the state Medicaid agency usually takes the application. Someone who has both programs and needs a nursing home level of care may also be able to join [[/guides/pace-program/|PACE]], a program that combines Medicare and Medicaid services into one coordinated team in some areas.</p>
 <p>Medicaid.gov publishes a directory of state agencies, phones, and websites. Each [[/states/|state page]] repeats the agency name, the member phone numbers, and the link from that directory, checked 16 Nov 2026. We do not invent a state's income limit for full Medicaid. Those rules are broader than the federal Medicare Savings Program table and they differ by state.</p>
 <p>If you lose Medicaid, you may get a special chance to sign up for Medicare or change a plan. The timing Medicare.gov describes is on the [[/guides/special-enrollment-periods/|special enrollment]] page. People who have Medicaid or Extra Help may also change drug coverage once a month.</p>
 """,
@@ -589,4 +593,58 @@ sources=[
 ("Compare Medigap plan benefits", "https://www.medicare.gov/health-drug-plans/medigap/basics/compare-plan-benefits"),
 ],
 related=[("/guides/medigap-plan-letters/", "Plan letters"), ("/guides/open-enrollment/", "Fall Medicare window"), ("/states/", "State insurance help")],
+)
+
+add(
+path="/guides/medicare-give-back-benefit/",
+title="Is the Medicare Give Back Benefit Real?",
+h1="Is the Medicare give back benefit real?",
+desc="Yes, but it is a Medicare Part B premium reduction some Advantage plans offer, not a check. What CMS rules and Medicare.gov say.",
+published="2026-11-18",
+checked="18 Nov 2026",
+body="""
+<div class="answer"><p><strong>Short version:</strong> Yes, the benefit is real, but Medicare.gov calls it a Part B premium reduction, not a give back. Only some Medicare Advantage plans offer it. It lowers what is withheld from your Social Security check or billed to you. It is never paid to you as cash.</p></div>
+<p>Medicare.gov says some Medicare Advantage plans will help pay all or part of a member's Part B premium, and that this is sometimes called a Medicare Part B premium reduction. The feature is not available in every area, and a specific plan has to choose to offer it. The standard 2026 Part B premium is $202.90 a month, and the reduction cannot be larger than that amount.</p>
+<p>CMS rules describe how the reduction works. A Medicare Advantage plan that offers it agrees to accept a lower monthly payment from Medicare, and in exchange the member's Part B premium bill or Social Security withholding goes down by a set amount, in multiples of 10 cents. The rule says the reduction will never result in a payment to the beneficiary. If the reduction is larger than what someone actually owes under a hold harmless rule, the person simply owes nothing more that month, not a refund.</p>
+<p>The size of the reduction is set by the plan and can be different from one county to the next, including $0 in many plans. Plans publish the figure in that year's Summary of Benefits, not on this site. A plan with a large premium reduction can still have a network, prior approval rules, and its own deductible or copays. Read the whole plan, not just the premium line, before you compare it with [[/guides/original-medicare-vs-medicare-advantage/|Original Medicare]] or another Medicare Advantage plan.</p>
+<p>This site does not say which plan to pick. Compare the real numbers for plans sold where you live on the Medicare Plan Finder at Medicare.gov, or ask a free [[/guides/ship-counseling/|SHIP counselor]] to go through a specific plan's Summary of Benefits with you.</p>
+""",
+faqs=[
+("Will I get a check for the give back benefit?", "No. The CMS rule for this benefit says the reduction never results in a payment to the beneficiary. It only lowers what is withheld from your Social Security check or billed to you for Part B."),
+("Can I get this with Original Medicare or a Medigap policy?", "No. Medicare.gov describes the Part B premium reduction as a feature of some Medicare Advantage plans. Original Medicare and Medigap do not reduce the Part B premium."),
+("Does every Medicare Advantage plan offer it?", "No. Medicare.gov says it is not available in every area, and each plan decides whether to offer it. Check a specific plan's Summary of Benefits or the Medicare Plan Finder for the current amount."),
+],
+sources=[
+("Understanding health plan costs", "https://www.medicare.gov/health-drug-plans/health-plans/costs"),
+("Understanding Medicare Advantage Plans", "https://www.medicare.gov/publications/12026-understanding-medicare-advantage-plans.pdf"),
+("Medicare Part B premium reduction rule, 42 CFR 408.21", "https://www.cms.gov/regulations-and-guidance/regulations-and-policies/quarterlyproviderupdates/downloads/cms6016f.pdf"),
+],
+related=[("/guides/medicare-advantage/", "What Medicare Advantage is"), ("/guides/medicare-costs-2026/", "2026 Medicare costs"), ("/guides/how-to-compare-plans/", "How to compare plans")],
+)
+
+add(
+path="/guides/pace-program/",
+title="What Is the PACE Program for Seniors?",
+h1="What is the PACE program for seniors?",
+desc="PACE brings nursing home level care to people 55 and older in their community. Who can join, what it costs, and how to find a program.",
+published="2026-11-18",
+checked="18 Nov 2026",
+body="""
+<div class="answer"><p><strong>Short version:</strong> PACE, the Program of All Inclusive Care for the Elderly, is a Medicare and Medicaid program that brings nursing home level care to people in their own community instead of a facility. It is only available in some states and only inside the service area of a PACE organization.</p></div>
+<p>Medicare.gov describes PACE as a comprehensive medical and social services program for older adults who need nursing home level care. A team of doctors, nurses, and other professionals coordinates everything the team decides a member needs, including hospital care, home care, dentistry, physical and occupational therapy, nutrition counseling, transportation to the PACE center, and prescription drugs.</p>
+<p>Medicare.gov lists four conditions to join. You must be at least 55. You must live in the service area of a PACE organization. Your state must find that you need a nursing home level of care. You must be able to live safely in the community with help from the PACE team. You do not have to already have Medicare or Medicaid. Medicare.gov says eligibility is not limited to people who have either program, although most participants have Medicare, Medicaid, or both.</p>
+<p>Cost depends on what coverage you already have. If you have Medicaid, Medicare.gov says you pay no monthly premium for PACE. If you have Medicare but not Medicaid, you pay a monthly premium for the long term care part of the benefit, plus a Part D drug premium. If you have neither program, you can pay the premium yourself. In every case, Medicare.gov says there is no deductible, copayment, or coinsurance for any drug, service, or care the PACE team approves.</p>
+<p>PACE is one of two plan types Medicare.gov groups under health plans that lower costs. The other is a Special Needs Plan, a type of [[/guides/medicare-advantage/|Medicare Advantage]] plan for people with Medicare and Medicaid, a long term care need, or a chronic condition. A Special Needs Plan keeps you in a network plan. PACE replaces separate doctor visits with one coordinated team and a day center. Medicare.gov says you will be disenrolled from PACE if you join a different Medicare drug plan while you are in it.</p>
+<p>To find out whether a PACE organization serves your area, search for PACE plans in your area on Medicare.gov or call your state Medicaid office. A [[/guides/ship-counseling/|SHIP counselor]] or your state Medicaid agency, listed on your [[/states/|state page]], can also explain whether PACE or a Special Needs Plan fits your situation. This site does not tell you which one to choose.</p>
+""",
+faqs=[
+("Do I need Medicare or Medicaid to join PACE?", "No. Medicare.gov says eligibility for PACE is not limited to people who have Medicare or Medicaid, though most participants have one or both. You can pay the premium yourself if you have neither."),
+("Is PACE available in every state?", "No. Medicare.gov says PACE is only available in some states that offer it under Medicaid, and only inside the service area of a specific PACE organization."),
+("Will PACE pay for a nursing home stay?", "PACE is built to help you avoid one. Medicare.gov says PACE helps eligible older adults get nursing home level care in the community, though it can cover nursing home care when the PACE team decides it is medically necessary."),
+],
+sources=[
+("PACE", "https://www.medicare.gov/health-drug-plans/health-plans/your-coverage-options/other-medicare-health-plans/PACE"),
+("Medicare health plans that lower costs", "https://www.medicare.gov/basics/costs/help/medicare-lower-costs"),
+],
+related=[("/guides/medicare-and-medicaid/", "Medicare and Medicaid together"), ("/guides/medicare-savings-programs/", "Help paying Medicare costs"), ("/guides/medicare-advantage/", "Medicare Advantage")],
 )
