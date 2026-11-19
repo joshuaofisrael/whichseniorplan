@@ -656,6 +656,9 @@ h1="What is the PACE program for seniors?",
 desc="PACE brings nursing home level care to people 55 and older in their community. Who can join, what it costs, and how to find a program.",
 published="2026-11-18",
 checked="18 Nov 2026",
+image="/assets/images/household-finances-paperwork.png",
+image_alt="Hands reviewing financial paperwork with a pen and coffee mug",
+image_caption="AI-generated thumbnail for this PACE guide.",
 body="""
 <div class="answer"><p><strong>Short version:</strong> PACE, the Program of All Inclusive Care for the Elderly, is a Medicare and Medicaid program that brings nursing home level care to people in their own community instead of a facility. It is only available in some states and only inside the service area of a PACE organization.</p></div>
 <p>Medicare.gov describes PACE as a comprehensive medical and social services program for older adults who need nursing home level care. A team of doctors, nurses, and other professionals coordinates everything the team decides a member needs, including hospital care, home care, dentistry, physical and occupational therapy, nutrition counseling, transportation to the PACE center, and prescription drugs.</p>
@@ -674,6 +677,12 @@ sources=[
 ("Medicare health plans that lower costs", "https://www.medicare.gov/basics/costs/help/medicare-lower-costs"),
 ],
 related=[("/guides/medicare-and-medicaid/", "Medicare and Medicaid together"), ("/guides/medicare-savings-programs/", "Help paying Medicare costs"), ("/guides/medicare-advantage/", "Medicare Advantage")],
+next_reads=[
+("/guides/medicare-and-medicaid/", "Medicare and Medicaid together", "/assets/images/household-finances-paperwork-thumb.png", "Hands reviewing financial paperwork with a pen and coffee mug"),
+("/guides/medicare-savings-programs/", "Help paying Medicare costs", "/assets/images/household-finances-paperwork-thumb.png", "Hands reviewing financial paperwork with a pen and coffee mug"),
+("/guides/medicare-advantage/", "Medicare Advantage", "/assets/images/household-finances-paperwork-thumb.png", "Hands reviewing financial paperwork with a pen and coffee mug"),
+("/guides/ship-counseling/", "Free SHIP counseling", "/assets/images/household-finances-paperwork-thumb.png", "Hands reviewing financial paperwork with a pen and coffee mug"),
+],
 )
 
 add(
