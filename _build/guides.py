@@ -61,7 +61,7 @@ sources=[
 ("How do I sign up for Medicare?", "https://www.medicare.gov/basics/get-started-with-medicare/sign-up/how-do-i-sign-up-for-medicare"),
 ("2026 premiums and deductibles", "https://www.cms.gov/newsroom/fact-sheets/2026-medicare-parts-b-premiums-deductibles"),
 ],
-related=[("/guides/original-medicare-vs-medicare-advantage/", "Compare the two paths"), ("/guides/what-medicare-covers/", "What it covers"), ("/guides/medicare-costs-2026/", "2026 costs")],
+related=[("/guides/original-medicare-vs-medicare-advantage/", "Compare the two paths"), ("/guides/what-medicare-covers/", "What it covers"), ("/guides/medicare-costs-2026/", "2026 costs"), ("/guides/medicare-costs-2027/", "2027 costs")],
 )
 
 add(
@@ -156,7 +156,7 @@ sources=[
 ("CY 2026 Part D base beneficiary premium", "https://www.cms.gov/files/document/july-28-2025-parts-c-d-announcement.pdf"),
 ("Joining a plan", "https://www.medicare.gov/basics/get-started-with-medicare/get-more-coverage/joining-a-plan"),
 ],
-related=[("/guides/extra-help/", "Extra Help"), ("/guides/general-enrollment-and-penalties/", "Late penalties"), ("/guides/how-to-compare-plans/", "How to compare plans")],
+related=[("/guides/extra-help/", "Extra Help"), ("/guides/medicare-costs-2027/", "2027 costs"), ("/guides/general-enrollment-and-penalties/", "Late penalties"), ("/guides/how-to-compare-plans/", "How to compare plans")],
 )
 
 add(
@@ -329,11 +329,21 @@ sources=[
 related=[("/guides/special-enrollment-periods/", "Ways to avoid a penalty"), ("/guides/extra-help/", "Extra Help"), ("/guides/enrollment-periods/", "All windows")],
 )
 
+COST_THUMB = "/assets/images/retirement-tea-papers.png"
+COST_THUMB_SM = "/assets/images/retirement-tea-papers-thumb.png"
+COST_THUMB_ALT = "Older hands resting on a mug beside printed charts and papers on a wooden table"
+
 add(
 path="/guides/medicare-costs-2026/",
 title="2026 Medicare Costs and Premiums | Which Senior Plan",
 h1="Medicare costs in 2026",
 desc="Official 2026 Part A and Part B premiums, deductibles, and income brackets from CMS and Medicare.gov. Private plan premiums are not listed.",
+modified="2026-11-19",
+checked="19 Nov 2026",
+image=COST_THUMB,
+image_alt=COST_THUMB_ALT,
+image_caption="Thumbnail for this costs guide.",
+compare_html='<aside class="compare" aria-label="Check another year"><p><strong>2027 figures are out.</strong> CMS published the [[/guides/medicare-costs-2027/|2027 Part A and Part B amounts]] on 17 Nov 2026. Use that page for next year. This page stays the 2026 table.</p></aside>',
 body="""
 <div class="answer"><p><strong>Short version:</strong> These are the 2026 amounts CMS and Medicare.gov published for Part A and Part B. They are not quotes for a Medicare Advantage, Part D, or Medigap policy. Those prices are set by the plan.</p></div>
 <h2>Part A</h2>
@@ -347,6 +357,7 @@ body="""
 <tr><th scope="row">Skilled nursing facility coinsurance, days 21 through 100</th><td>$217 a day</td></tr>
 </tbody></table></div>
 <p>CMS says about 99 percent of people with Medicare pay no Part A premium. Days 1 through 60 in the hospital are $0 after the deductible. There is no limit on how many benefit periods you can have.</p>
+<!--NEXT_READS-->
 <h2>Part B</h2>
 <p>The standard premium is $202.90 a month. The deductible is $283 for the year. After the deductible you usually pay 20 percent of the Medicare approved amount for Part B services. The standard premium for immunosuppressive drug coverage only, for certain people whose full Medicare ended 36 months after a kidney transplant, is $121.60 a month.</p>
 <h2>Higher premiums based on income</h2>
@@ -360,7 +371,7 @@ body="""
 <tr><td>$500,000 or more</td><td>$750,000 or more</td><td>$689.90</td><td>$91.00</td></tr>
 </tbody></table></div>
 <p>Married people who lived with a spouse and file a separate return pay a Part B total of $202.90 if income is $109,000 or less, $649.20 if income is above $109,000 and under $391,000, and $689.90 at $391,000 or more. The matching Part D add on amounts are $0, $83.30, and $91.00. The Part D amount is added to the plan premium. It is not the plan premium.</p>
-<p>Help with these costs, if your income is limited, is a [[/guides/medicare-savings-programs/|Medicare Savings Program]] run by your state.</p>
+<p>Help with these costs, if your income is limited, is a [[/guides/medicare-savings-programs/|Medicare Savings Program]] run by your state. For outpatient drug rules in 2026, including the $2,100 out of pocket cap, see [[/guides/part-d/|Part D]]. For free local counseling, use [[/guides/ship-counseling/|SHIP]].</p>
 """,
 faqs=[
 ("Are these the prices of Medicare Advantage plans?", "No. Advantage, Part D, and Medigap premiums are set by each company. The figures on this page are the federal Part A and Part B amounts for 2026."),
@@ -370,8 +381,15 @@ faqs=[
 sources=[
 ("2026 Medicare Parts A and B premiums and deductibles", "https://www.cms.gov/newsroom/fact-sheets/2026-medicare-parts-b-premiums-deductibles"),
 ("What does Medicare cost?", "https://www.medicare.gov/basics/get-started-with-medicare/medicare-basics/what-does-medicare-cost"),
+("2027 Medicare Parts A and B premiums and deductibles", "https://www.cms.gov/newsroom/fact-sheets/2027-medicare-parts-b-premiums-deductibles"),
 ],
-related=[("/guides/part-d/", "Part D costs"), ("/guides/medicare-savings-programs/", "Help paying"), ("/guides/general-enrollment-and-penalties/", "Penalties")],
+related=[("/guides/medicare-costs-2027/", "2027 costs"), ("/guides/part-d/", "Part D costs"), ("/guides/medicare-savings-programs/", "Help paying"), ("/guides/general-enrollment-and-penalties/", "Penalties")],
+next_reads=[
+("/guides/medicare-costs-2027/", "2027 Medicare costs from CMS", COST_THUMB_SM, COST_THUMB_ALT),
+("/guides/part-d/", "Part D drug costs and the yearly cap", COST_THUMB_SM, COST_THUMB_ALT),
+("/guides/medicare-savings-programs/", "Medicare Savings Programs", COST_THUMB_SM, COST_THUMB_ALT),
+("/guides/ship-counseling/", "Free SHIP counseling", COST_THUMB_SM, COST_THUMB_ALT),
+],
 )
 
 add(
@@ -619,7 +637,7 @@ sources=[
 ("Understanding Medicare Advantage Plans", "https://www.medicare.gov/publications/12026-understanding-medicare-advantage-plans.pdf"),
 ("Medicare Part B premium reduction rule, 42 CFR 408.21", "https://www.cms.gov/regulations-and-guidance/regulations-and-policies/quarterlyproviderupdates/downloads/cms6016f.pdf"),
 ],
-related=[("/guides/medicare-advantage/", "What Medicare Advantage is"), ("/guides/medicare-costs-2026/", "2026 Medicare costs"), ("/guides/how-to-compare-plans/", "How to compare plans")],
+related=[("/guides/medicare-advantage/", "What Medicare Advantage is"), ("/guides/medicare-costs-2026/", "2026 Medicare costs"), ("/guides/medicare-costs-2027/", "2027 Medicare costs"), ("/guides/how-to-compare-plans/", "How to compare plans")],
 )
 
 add(
@@ -647,4 +665,69 @@ sources=[
 ("Medicare health plans that lower costs", "https://www.medicare.gov/basics/costs/help/medicare-lower-costs"),
 ],
 related=[("/guides/medicare-and-medicaid/", "Medicare and Medicaid together"), ("/guides/medicare-savings-programs/", "Help paying Medicare costs"), ("/guides/medicare-advantage/", "Medicare Advantage")],
+)
+
+add(
+path="/guides/medicare-costs-2027/",
+title="2027 Medicare Part B Premium Is $209.40",
+h1="Medicare costs in 2027",
+desc="CMS 2027 Part B premium is $209.40, Part A hospital deductible is $1,776, and the Part D out of pocket cap is $2,400.",
+published="2026-11-19",
+modified="2026-11-19",
+checked="19 Nov 2026",
+image=COST_THUMB,
+image_alt=COST_THUMB_ALT,
+image_caption="Thumbnail for this costs guide.",
+compare_html='<aside class="compare" aria-label="Check another year"><p><strong>Need 2026 instead?</strong> The [[/guides/medicare-costs-2026/|2026 Part A and Part B table]] stays posted for this coverage year.</p></aside>',
+body="""
+<div class="answer"><p><strong>Short version:</strong> On 17 Nov 2026, CMS published the 2027 Part A and Part B amounts. The standard Part B premium is $209.40 a month. The Part A hospital deductible is $1,776 per benefit period. Medicare.gov lists the 2027 Part D out of pocket threshold at $2,400. These are federal figures, not a quote for a private Advantage, Part D, or Medigap plan.</p></div>
+<h2>What changed from 2026</h2>
+<p>Compared with the [[/guides/medicare-costs-2026/|2026 costs]] page, the CMS fact sheet raises the standard Part B premium by $6.50, from $202.90 to $209.40. The Part B yearly deductible moves from $283 to $292. The Part A hospital deductible moves from $1,736 to $1,776. Day rates for longer hospital stays and skilled nursing coinsurance rise in step with that deductible. About 99 percent of people with Medicare still pay no Part A premium when they have enough work quarters.</p>
+<h2>Part A</h2>
+<div class="tablewrap"><table class="list"><thead><tr><th scope="col">2027 Part A cost</th><th scope="col">Amount</th></tr></thead><tbody>
+<tr><th scope="row">Premium for most people (about 40 quarters of work)</th><td>$0</td></tr>
+<tr><th scope="row">Premium with at least 30 quarters</th><td>$328 a month</td></tr>
+<tr><th scope="row">Full premium with fewer than 30 quarters</th><td>$597 a month</td></tr>
+<tr><th scope="row">Hospital deductible, each benefit period</th><td>$1,776</td></tr>
+<tr><th scope="row">Hospital coinsurance, days 61 through 90</th><td>$444 a day</td></tr>
+<tr><th scope="row">Lifetime reserve days</th><td>$888 a day</td></tr>
+<tr><th scope="row">Skilled nursing facility coinsurance, days 21 through 100</th><td>$222 a day</td></tr>
+</tbody></table></div>
+<p>Days 1 through 60 in the hospital are $0 after the deductible. CMS and Medicare.gov still charge the hospital deductible once per benefit period, not once per calendar year. There is no limit on how many benefit periods you can have.</p>
+<!--NEXT_READS-->
+<h2>Part B</h2>
+<p>The standard Part B premium is $209.40 a month. The deductible is $292 for the year. After the deductible you usually pay 20 percent of the Medicare approved amount for Part B services. For certain people whose full Medicare ended 36 months after a kidney transplant, the standard premium for immunosuppressive drug coverage only is $125.70 a month in 2027.</p>
+<h2>Higher premiums based on income</h2>
+<p>CMS says the income related monthly adjustment amounts affect roughly 9 percent of people with Part B. The 2027 full Part B totals use modified adjusted gross income from the tax return Social Security uses. The brackets below are from the CMS 2027 fact sheet.</p>
+<div class="tablewrap"><table class="list"><thead><tr><th scope="col">Single income</th><th scope="col">Joint income</th><th scope="col">Part B total premium</th><th scope="col">Part D add on</th></tr></thead><tbody>
+<tr><td>$112,000 or less</td><td>$224,000 or less</td><td>$209.40</td><td>$0</td></tr>
+<tr><td>Above $112,000 to $141,000</td><td>Above $224,000 to $282,000</td><td>$293.10</td><td>$15.40</td></tr>
+<tr><td>Above $141,000 to $177,000</td><td>Above $282,000 to $354,000</td><td>$418.80</td><td>$39.70</td></tr>
+<tr><td>Above $177,000 to $212,000</td><td>Above $354,000 to $424,000</td><td>$544.40</td><td>$64.00</td></tr>
+<tr><td>Above $212,000 and under $500,000</td><td>Above $424,000 and under $750,000</td><td>$670.00</td><td>$88.30</td></tr>
+<tr><td>$500,000 or more</td><td>$750,000 or more</td><td>$711.80</td><td>$96.40</td></tr>
+</tbody></table></div>
+<p>Married people who lived with a spouse and file a separate return pay a Part B total of $209.40 if income is $112,000 or less, $670.00 if income is above $112,000 and under $388,000, and $711.80 at $388,000 or more. The matching Part D add on amounts are $0, $88.30, and $96.40. The Part D amount is added to the plan premium. It is not the plan premium.</p>
+<h2>Part D cap and deductible ceiling</h2>
+<p>Medicare.gov and the CMS CY 2027 Part D parameters set the annual out of pocket threshold at $2,400 for covered Part D drugs in 2027, up from $2,100 in 2026. After that threshold, you pay $0 for covered Part D drugs for the rest of the calendar year. No Part D plan may use a deductible above $700 in 2027 ($615 was the 2026 ceiling). The national base beneficiary premium Medicare.gov lists for the late enrollment penalty formula is $41.33 in 2027 ($38.99 in 2026). That base is not the premium printed on every plan.</p>
+<p>Plan premiums, formularies, and pharmacy prices still come from the plan you compare on Medicare.gov. This page does not name plans. If income is limited, a [[/guides/medicare-savings-programs/|Medicare Savings Program]] or [[/guides/extra-help/|Extra Help]] may lower what you pay. A [[/guides/ship-counseling/|SHIP counselor]] can walk through numbers for your ZIP code without a sales pitch.</p>
+""",
+faqs=[
+("Are these Medicare Advantage plan prices?", "No. Advantage, Part D, and Medigap premiums are set by each company. The figures here are the federal Part A and Part B amounts for 2027, plus the Part D out of pocket threshold and deductible ceiling Medicare.gov and CMS publish."),
+("Does everyone pay $209.40 for Part B?", "That is the standard 2027 premium. People with higher incomes pay more, and a late enrollment penalty can add more. Some people pay less because a state Medicare Savings Program pays the premium."),
+("What is the 2027 Part D out of pocket cap?", "Medicare.gov lists $2,400 as the 2027 out of pocket threshold for covered Part D drugs. After you reach it, you pay nothing more for those covered drugs for the rest of the year."),
+],
+sources=[
+("2027 Medicare Parts A and B premiums and deductibles", "https://www.cms.gov/newsroom/fact-sheets/2027-medicare-parts-b-premiums-deductibles"),
+("What does Medicare cost?", "https://www.medicare.gov/basics/get-started-with-medicare/medicare-basics/what-does-medicare-cost"),
+("How much does Medicare drug coverage cost?", "https://www.medicare.gov/health-drug-plans/part-d/basics/costs"),
+("Announcement of CY 2027 MA Capitation Rates and Part C and Part D Payment Policies", "https://www.cms.gov/files/document/2027-announcement.pdf"),
+],
+related=[("/guides/medicare-costs-2026/", "2026 costs"), ("/guides/part-d/", "Part D"), ("/guides/medicare-savings-programs/", "Help paying"), ("/guides/original-medicare/", "Original Medicare")],
+next_reads=[
+("/guides/medicare-costs-2026/", "2026 Medicare costs table", COST_THUMB_SM, COST_THUMB_ALT),
+("/guides/part-d/", "How Part D drug coverage works", COST_THUMB_SM, COST_THUMB_ALT),
+("/guides/medicare-savings-programs/", "Medicare Savings Programs", COST_THUMB_SM, COST_THUMB_ALT),
+("/guides/ship-counseling/", "Free SHIP counseling", COST_THUMB_SM, COST_THUMB_ALT),
+],
 )

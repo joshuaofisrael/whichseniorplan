@@ -18,6 +18,7 @@ CHECKED = "16 Nov 2026"
 INDEXNOW_KEY = "c641d3cb68a0047708c9064020aa6977"
 CF_BEACON_TOKEN = "eac63f2b5dbc4539a2d95249baab6472"
 GA4_ID = "G-F440SDE14K"  # Owner pastes a G-XXXXXXXXXX measurement id. Empty fails the launch check.
+ADSENSE_PUB = "ca-pub-5681559774142917"
 LEGAL_LINE = "© 2026 Joshua Israel Ventures LLC. All rights reserved. Which Senior Plan is a trade name of Joshua Israel Ventures LLC, a Florida limited liability company."
 E = html.escape
 STATES = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "states.json"), encoding="utf-8"))
@@ -57,7 +58,7 @@ def crumbs_html(crumbs):
             items.append(f'<li aria-current="page">{E(n)}</li>')
     return '<nav class="crumbs" aria-label="Breadcrumb"><ol>' + "".join(items) + "</ol></nav>"
 
-def page(path, title, desc, body, jsonld=None, crumbs=None, noindex=False, legal=False, kind="website", lastmod=None):
+def page(path, title, desc, body, jsonld=None, crumbs=None, noindex=False, legal=False, kind="website", lastmod=None, og_image=None):
     if len(title) >= 60:
         raise SystemExit(f"title {len(title)} {title}")
     if len(desc) > 155 or len(desc) < 40:
@@ -67,6 +68,7 @@ def page(path, title, desc, body, jsonld=None, crumbs=None, noindex=False, legal
         canon = url("/404.html")
     if not noindex:
         PAGES.append((path if path != "/404.html" else "/404.html", lastmod or PUBLISHED))
+    og_img = url(og_image) if og_image else url("/og.png")
     ld = []
     if path == "/":
         ld.append({"@context": "https://schema.org", "@type": "WebSite", "name": BRAND, "url": BASE,
@@ -93,6 +95,8 @@ def page(path, title, desc, body, jsonld=None, crumbs=None, noindex=False, legal
             "gtag('consent','default',{'ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','analytics_storage':'denied','wait_for_update':500});"
             "gtag('set','ads_data_redaction',true);"
             "</script>"
+            f'<meta name="google-adsense-account" content="{E(ADSENSE_PUB)}">'
+            f'<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={E(ADSENSE_PUB)}" crossorigin="anonymous"></script>'
         )
         consent = f'<script src="{u("/assets/consent.js")}" defer></script>'
     else:
@@ -102,8 +106,8 @@ def page(path, title, desc, body, jsonld=None, crumbs=None, noindex=False, legal
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{E(title)}</title><meta name="description" content="{E(desc)}"><link rel="canonical" href="{canon}">
 <meta name="robots" content="{robots}">
-<meta property="og:type" content="{kind}"><meta property="og:site_name" content="{BRAND}"><meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(desc)}"><meta property="og:url" content="{canon}"><meta property="og:image" content="{url("/og.png")}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{E(title)}"><meta name="twitter:description" content="{E(desc)}">
-<link rel="icon" href="{u("/favicon.svg")}" type="image/svg+xml"><link rel="stylesheet" href="{u("/assets/style.css")}?v=2">{ldh}{ga_head}
+<meta property="og:type" content="{kind}"><meta property="og:site_name" content="{BRAND}"><meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(desc)}"><meta property="og:url" content="{canon}"><meta property="og:image" content="{og_img}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{E(title)}"><meta name="twitter:description" content="{E(desc)}">
+<link rel="icon" href="{u("/favicon.svg")}" type="image/svg+xml"><link rel="stylesheet" href="{u("/assets/style.css")}?v=3">{ldh}{ga_head}
 </head><body><a class="skip" href="#main">Skip to content</a>
 <div class="banner"><div class="wrap"><p>Independent guide. Not a government site. Not insurance advice. No plan sales and no quote forms.</p></div></div>
 <header class="site"><div class="wrap"><a class="brand" href="{u("/")}"><span class="mark">{LOGO}</span><span>{BRAND}</span></a><nav class="main" aria-label="Main">{nav}</nav></div></header>
@@ -139,12 +143,12 @@ def faq_ld(faqs):
     return {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
         {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faqs]}
 
-def article_ld(h1, path, published=None, modified=None):
+def article_ld(h1, path, published=None, modified=None, image=None):
     pub = published or PUBLISHED
     mod = modified or pub
     return {"@context": "https://schema.org", "@type": "Article", "headline": h1,
             "datePublished": pub, "dateModified": mod,
-            "image": url("/og.png"), "mainEntityOfPage": url(path),
+            "image": url(image) if image else url("/og.png"), "mainEntityOfPage": url(path),
             "author": {"@type": "Organization", "name": BRAND, "url": BASE},
             "publisher": {"@type": "Organization", "name": BRAND, "url": BASE, "logo": {"@type": "ImageObject", "url": url("/logo.png")}}}
 
@@ -154,6 +158,39 @@ def byline(checked=None):
 def notice():
     return '<p class="notice">General information from public pages. This is not insurance advice, not a recommendation, and not a government site.</p>'
 
+def hero_thumb(image, alt, caption=None):
+    cap = caption or "Photo used as the article thumbnail."
+    return (
+        f'<figure class="hero-thumb">'
+        f'<a href="{u("/image-policy/")}"><img src="{u(image)}" width="1280" height="720" alt="{E(alt)}"></a>'
+        f'<figcaption><a href="{u("/image-policy/")}">AI generated image</a>. {E(cap)}</figcaption>'
+        f'</figure>'
+    )
+
+def next_reads_html(items, heading="Keep reading"):
+    if not items:
+        return ""
+    # Every <img> must sit inside an open <a href="/image-policy/"> (check.py).
+    cards = []
+    for it in items:
+        path, label, image, alt = it[0], it[1], it[2], it[3]
+        cards.append(
+            f'<li>'
+            f'<a href="{u("/image-policy/")}" class="nr-img"><img src="{u(image)}" width="480" height="270" alt="{E(alt)}" loading="lazy"></a>'
+            f'<a class="nr-title" href="{u(path)}">{E(label)}</a>'
+            f'</li>'
+        )
+    hid = "next-reads-h" if heading == "Keep reading" else "related-reads-h"
+    return (
+        f'<section class="next-reads" aria-labelledby="{hid}">'
+        f'<h2 id="{hid}">{E(heading)}</h2>'
+        f'<ul>{"".join(cards)}</ul>'
+        f'</section>'
+    )
+
+def compare_box(html_inner):
+    return f'<aside class="compare" aria-label="Check another year">{html_inner}</aside>'
+
 def guide_pages():
     for g in GUIDES:
         related = list(g["related"])
@@ -162,14 +199,32 @@ def guide_pages():
         gchecked = g.get("checked", CHECKED)
         gpub = g.get("published", PUBLISHED)
         gmod = g.get("modified", gpub)
+        gimg = g.get("image")
+        thumb = hero_thumb(gimg, g.get("image_alt", g["h1"]), g.get("image_caption")) if gimg else ""
+        mid = next_reads_html(g.get("next_reads_mid") or g.get("next_reads") or [], "Related guides") if (g.get("next_reads_mid") or g.get("next_reads")) else ""
+        end = next_reads_html(g.get("next_reads_end") or g.get("next_reads") or [], "Keep reading") if (g.get("next_reads_end") or g.get("next_reads")) else ""
+        # If only one next_reads list is provided, show it mid-article (after body insert point) and at end.
+        body_html = expand(g["body"])
+        if mid and "<!--NEXT_READS-->" in body_html:
+            body_html = body_html.replace("<!--NEXT_READS-->", mid, 1)
+            mid_placed = True
+        else:
+            mid_placed = False
+        mid_block = "" if mid_placed else mid
+        compare = expand(g.get("compare_html", ""))
         body = f'''<article class="prose"><h1>{E(g["h1"])}</h1>{byline(gchecked)}{notice()}
-{expand(g["body"])}
+{thumb}{compare}
+{body_html}
+{mid_block}
 {faq_block(g["faqs"])}
 <section class="sources"><h2>Sources</h2>{src_list(g["sources"])}
-<p class="note">Last checked {gchecked}. We cite the page we read. If a figure is for 2026, the source labels it as 2026.</p></section>
+<p class="note">Last checked {gchecked}. We cite the page we read. Dollar amounts appear only for the year the official page labels.</p></section>
+{end}
 <p class="related">''' + " · ".join(f'<a href="{u(p)}">{E(n)}</a>' for p, n in related) + "</p></article>"
-        write(g["path"], page(g["path"], g["title"], g["desc"], body, [article_ld(g["h1"], g["path"], gpub, gmod), faq_ld(g["faqs"])],
-                              [("/", "Home"), ("/guides/", "Guides"), (g["path"], g["h1"])], kind="article", lastmod=gmod))
+        write(g["path"], page(g["path"], g["title"], g["desc"], body,
+                              [article_ld(g["h1"], g["path"], gpub, gmod, gimg), faq_ld(g["faqs"])],
+                              [("/", "Home"), ("/guides/", "Guides"), (g["path"], g["h1"])],
+                              kind="article", lastmod=gmod, og_image=gimg))
 
 def guides_index():
     groups = [
@@ -177,7 +232,7 @@ def guides_index():
         ("Medigap letters", [3, 19]),
         ("Drugs", [4, 15]),
         ("Deadlines", [5, 6, 7, 8, 9, 10]),
-        ("Costs and help", [11, 12, 13, 14, 16, 17]),
+        ("Costs and help", [11, 22, 12, 13, 14, 16, 17]),
         ("Comparing", [18]),
         ("Programs and benefits", [20, 21]),
     ]
@@ -190,8 +245,8 @@ def guides_index():
         ("Which guide should I read first?", "Start with Original Medicare or Medicare Advantage, then open the deadline or the cost that applies to you."),
         ("How many national guides are here?", f"{len(GUIDES)} explainers on the federal rules, plus a page for each state and the District of Columbia."),
     ]
-    GUIDES_INDEX_UPDATED = "2026-11-18"
-    body = f'<article class="prose"><h1>Guides</h1>{byline(GUIDES_INDEX_UPDATED)}{notice()}<p>{len(GUIDES)} explainers on the federal rules, plus a page for each state and the District of Columbia. Start with the choice between Original Medicare and Medicare Advantage, then open the deadline or the cost that applies to you.</p>{"".join(blocks)}<p><a href="{u("/states/")}">State contacts</a> · <a href="{u("/guides/how-to-compare-plans/")}">How to compare plans</a></p>{faq_block(faqs)}</article>'
+    GUIDES_INDEX_UPDATED = "2026-11-19"
+    body = f'<article class="prose"><h1>Guides</h1>{byline(GUIDES_INDEX_UPDATED)}{notice()}<p>{len(GUIDES)} explainers on the federal rules, plus a page for each state and the District of Columbia. Start with the choice between Original Medicare and Medicare Advantage, then open the deadline or the cost that applies to you. The <a href="{u("/guides/medicare-costs-2027/")}">2027 Medicare costs</a> page has the new Part A and Part B amounts from CMS.</p>{"".join(blocks)}<p><a href="{u("/states/")}">State contacts</a> · <a href="{u("/guides/how-to-compare-plans/")}">How to compare plans</a></p>{faq_block(faqs)}</article>'
     desc = "Plain English guides to Medicare plan choices, deadlines, Medigap letters, Part D, PACE, and state help lines."
     write("/guides/", page("/guides/", "Which Medicare Guide Should I Read?", desc, body,
                            [article_ld("Guides", "/guides/", modified=GUIDES_INDEX_UPDATED), faq_ld(faqs)],
@@ -299,7 +354,7 @@ def home():
     faqs = [
         ("Which plan does this site tell me to pick?", "None. The guides explain Original Medicare, Medicare Advantage, Medigap letters, Part D, and enrollment deadlines. Medicare.gov and a SHIP counselor can show plans sold where you live. We do not sell plans."),
         ("Is Which Senior Plan part of Medicare?", "No. We are not affiliated with or endorsed by the U.S. government or the federal Medicare program."),
-        ("Where do the dollar amounts come from?", "A dollar amount appears only when an official page labels it for 2026. Private plan premiums and plan names are not listed."),
+        ("Where do the dollar amounts come from?", "A dollar amount appears only when an official page labels it for that year, such as 2026 or 2027. Private plan premiums and plan names are not listed."),
     ]
     body = f'''<section class="hero"><h1>Which senior health plan should you look at?</h1>
 <p class="answer">Plain English guides to Original Medicare, Medicare Advantage, Medigap letters, Part D, enrollment deadlines, and the free counseling office in every state. We cite Medicare.gov, CMS, shiphelp.org, and state agencies. We do not sell plans.</p>
@@ -308,19 +363,21 @@ def home():
 <p class="btnrow"><a class="btn" href="{u("/guides/original-medicare-vs-medicare-advantage/")}">Compare the two paths</a> <a class="btn alt" href="{u("/guides/enrollment-periods/")}">See the deadlines</a></p>
 </section>
 <h2>Start here</h2><ul class="cards">{cards}</ul>
-<h2>All {len(GUIDES)} guides</h2><p><a href="{u("/guides/")}">Browse every explainer</a>, from the 2026 premium table to Extra Help, PACE, and Medigap open enrollment. When you are ready to look at real contracts, read <a href="{u("/guides/how-to-compare-plans/")}">how to compare plans</a>.</p>
+<h2>All {len(GUIDES)} guides</h2><p><a href="{u("/guides/")}">Browse every explainer</a>, from the <a href="{u("/guides/medicare-costs-2027/")}">2027 premium table</a> to Extra Help, PACE, and Medigap open enrollment. When you are ready to look at real contracts, read <a href="{u("/guides/how-to-compare-plans/")}">how to compare plans</a>.</p>
 <h2>How the numbers are chosen</h2>
-<p>A dollar amount appears only when an official page labels it for 2026. Private plan premiums and plan names do not appear, because we will not invent them. The editorial rules are public on the <a href="{u("/editorial-policy/")}">editorial and sources policy</a>.</p>
+<p>A dollar amount appears only when an official page labels it for that year. Private plan premiums and plan names do not appear, because we will not invent them. The editorial rules are public on the <a href="{u("/editorial-policy/")}">editorial and sources policy</a>.</p>
 {faq_block(faqs)}'''
     write("/", page("/", "Which Senior Health Plan Should I Pick?",
                     "Which senior health plan should you look at? Plain English guides to Original Medicare, Advantage, Medigap, Part D, and free counseling.",
-                    body, faq_ld(faqs), lastmod="2026-11-18"))
+                    body, faq_ld(faqs), lastmod="2026-11-19"))
 
-def simple(path, title, desc, h1, inner, legal=False):
+def simple(path, title, desc, h1, inner, legal=False, modified=None):
     body = f'<article class="prose"><h1>{E(h1)}</h1>{inner}</article>'
     if legal:
         body = f'<article class="prose"><h1>{E(h1)}</h1>{inner}<p class="legal-line">{LEGAL_LINE}</p></article>'
-    write(path, page(path, title, desc, body, article_ld(h1, path), [("/", "Home"), (path, h1)], legal=legal, kind="article"))
+    mod = modified or PUBLISHED
+    write(path, page(path, title, desc, body, article_ld(h1, path, modified=mod),
+                     [("/", "Home"), (path, h1)], legal=legal, kind="article", lastmod=mod))
 
 def legal_pages():
     D = CHECKED
@@ -332,12 +389,12 @@ def legal_pages():
 <p>See a mistake? <a href="{u("/contact/")}">Write to us</a> and include the page and the official source.</p>''')
     simple("/editorial-policy/", f"Editorial and Sources Policy | {BRAND}",
            "How Which Senior Plan checks Medicare facts, what it will not publish, and how to ask for a correction.",
-           "Editorial and sources policy", f'''<p>Last updated {D}.</p>
+           "Editorial and sources policy", f'''<p>Last updated 19 Nov 2026.</p>
 <p>This is not legal advice. This is not medical advice. This is not insurance advice. The pages are general information so you can read the federal rules before you talk with Social Security, Medicare, a SHIP counselor, or your state.</p>
 <h2>What we will publish</h2>
 <ul>
 <li>Rules and dollar amounts that we read on Medicare.gov, CMS.gov, SSA.gov, shiphelp.org, a state insurance department, or a state Medicaid agency.</li>
-<li>The year the official page attaches to a dollar amount. For this version, that year is 2026 when the page says 2026.</li>
+<li>The year the official page attaches to a dollar amount. A 2026 figure stays on a 2026 page. A 2027 figure stays on a 2027 page.</li>
 <li>A last checked date, the source title, and the source URL on every guide and every state page.</li>
 <li>The name and phone of a SHIP program or Medicaid agency only when the official directory prints them.</li>
 </ul>
@@ -345,7 +402,7 @@ def legal_pages():
 <ul>
 <li>A premium, copay, or plan name we did not read on an official page. Private plan prices are left to Medicare.gov and SHIP.</li>
 <li>A recommendation to buy, drop, or switch a specific plan.</li>
-<li>A figure for a later year just because a page also mentions that year. The Extra Help page shows some copays under a 2027 heading. Those copays are not on our 2026 pages.</li>
+<li>A figure for a later year on an earlier year page. The Extra Help page shows some copays under a 2027 heading; those stay off the 2026 Extra Help explainer until we publish a matching year page.</li>
 <li>A state insurance department link we could not open. Ten states are missing that link on purpose.</li>
 <li>Anything presented as an official Medicare communication. We are not affiliated with or endorsed by the U.S. government or the federal Medicare program.</li>
 </ul>
@@ -354,13 +411,14 @@ def legal_pages():
 <h2>Dates</h2>
 <p>datePublished on the first version of these pages is {PUBLISHED}, the day the sources were read. It is not the clock time of a later rebuild. dateModified changes only when the words change.</p>
 <h2>Independence</h2>
-<p>No insurer pays for a mention. There are no ads and no affiliate links in this version. See the <a href="{u("/ad-disclosure/")}">advertising disclosure</a>.</p>''', legal=True)
+<p>No insurer pays for a mention. There are no affiliate links. An AdSense account tag may be present for domain verification before any ad units appear. See the <a href="{u("/ad-disclosure/")}">advertising disclosure</a>.</p>''', legal=True, modified="2026-11-19")
     simple("/image-policy/", f"Image Policy | {BRAND}", "How Which Senior Plan handles images, logos, and government seals.",
-           "Image policy", f'''<p>Last updated {D}.</p>
+           "Image policy", f'''<p>Last updated 19 Nov 2026.</p>
 <h2>What we use</h2><p>The mark and the social image are simple graphics we drew for this site. They do not include a government seal, the Medicare name, or a picture of a person.</p>
-<p><a href="{u("/image-policy/")}"><img src="{u("/logo.png")}" width="96" height="96" alt="Which Senior Plan mark"></a></p>
-<h2>What we do not use</h2><p>We do not use the Medicare card art, the CMS logo, state seals, or photos of real people. If we add an illustration later, it will be labeled, including a visible note if it is AI generated.</p>
-<h2>Questions</h2><p>Copyright concerns go through the <a href="{u("/copyright/")}">copyright page</a> or the <a href="{u("/contact/")}">contact page</a>.</p>''')
+<p class="brand-mark"><a href="{u("/image-policy/")}"><img src="{u("/logo.png")}" width="96" height="96" alt="Which Senior Plan mark"></a></p>
+<p>Some guides use a photorealistic thumbnail created with AI. Those photos are labeled AI generated and link back to this page. They do not show a real identifiable person, a government seal, or a Medicare logo.</p>
+<h2>What we do not use</h2><p>We do not use the Medicare card art, the CMS logo, state seals, or photos of real people. Any AI generated thumbnail stays labeled.</p>
+<h2>Questions</h2><p>Copyright concerns go through the <a href="{u("/copyright/")}">copyright page</a> or the <a href="{u("/contact/")}">contact page</a>.</p>''', modified="2026-11-19")
     simple("/contact/", f"Contact {BRAND}", "Email Which Senior Plan at joshuaofisrael@gmail.com about a correction or a missing source.",
            "Contact", f'''<p>For a correction, a missing source, or a question about the site, email <a href="mailto:joshuaofisrael@gmail.com">joshuaofisrael@gmail.com</a>.</p>
 <h2>What to include</h2><p>Send the page address, the sentence that looks wrong, and a link to the Medicare.gov, CMS, shiphelp.org, or state page that shows the current fact. We update the last checked date when we re read the source.</p>
@@ -375,12 +433,12 @@ def legal_pages():
 <h2>Disclaimer of warranties and limitation of liability</h2><p>The site is provided as is. To the fullest extent permitted by law, Joshua Israel Ventures LLC disclaims all warranties and is not liable for decisions you make about coverage. Our total liability for a claim relating to the site is limited to 100 dollars.</p>
 <h2>Governing law</h2><p>These terms are governed by the laws of the State of Florida. Questions: email <a href="mailto:joshuaofisrael@gmail.com">joshuaofisrael@gmail.com</a>.</p>''', legal=True)
     simple("/privacy/", f"Privacy Policy | {BRAND}", "How Which Senior Plan handles email, hosting logs, and analytics.",
-           "Privacy policy", f'''<p>Last updated {D}. Which Senior Plan is a trade name of Joshua Israel Ventures LLC, a Florida limited liability company.</p>
+           "Privacy policy", f'''<p>Last updated 19 Nov 2026. Which Senior Plan is a trade name of Joshua Israel Ventures LLC, a Florida limited liability company.</p>
 <h2>What we collect</h2><p>The site has no account, no quote form, and no shopping cart. If you email joshuaofisrael@gmail.com, we receive whatever you put in that email and we use it to reply. Do not include your Medicare number or medical records.</p>
 <h2 id="analytics">Analytics</h2><p>{"Cloudflare Web Analytics loads on every public page and counts page views. It does not use cookies and it does not track you across other sites. Google Analytics 4 loads only after you accept the consent banner. Consent Mode v2 starts with ad storage, ad user data, ad personalization, and analytics storage denied. If you decline, the Google tag is not requested. Cookie settings in the footer opens that choice again. Accepting stores the choice in local storage in this browser. The site does not set its own tracking cookie. Advertising storage stays denied either way." if LAUNCH else "This preview build does not load Cloudflare Web Analytics or Google Analytics 4. The launch build loads Cloudflare Web Analytics on every page. That tool counts page views, does not use cookies, and does not track you across other sites. Google Analytics 4 loads only after you accept the consent banner. Consent Mode v2 starts with ad storage, ad user data, ad personalization, and analytics storage denied. If you decline, the Google tag is not requested. Cookie settings in the footer opens that choice again. Advertising storage stays denied either way."}</p>
 <h2>Hosting</h2><p>GitHub Pages hosts the files and may log IP addresses for security.</p>
-<h2>Advertising</h2><p>There are no ads. If that changes, we will update this policy and the advertising disclosure first.</p>
-<h2>Children</h2><p>The site is not directed to children under 13.</p>''', legal=True)
+<h2 id="advertising">Advertising</h2><p>The site includes a Google AdSense account tag (publisher id {ADSENSE_PUB}) so Google can verify the domain. No ad units are placed on the pages yet, and Consent Mode keeps advertising storage denied until that changes. The authorized digital sellers file is at <a href="{u("/ads.txt")}">/ads.txt</a>. If display ads are turned on later, this section and the <a href="{u("/ad-disclosure/")}">advertising disclosure</a> will say so first. Advertisers do not edit guides. We do not sell insurance leads.</p>
+<h2>Children</h2><p>The site is not directed to children under 13.</p>''', legal=True, modified="2026-11-19")
     simple("/disclaimer/", f"Disclaimer | {BRAND}", "Which Senior Plan is not a government site, does not sell insurance, and does not give insurance advice.",
            "Disclaimer", f'''<p>Last updated {D}.</p>
 <h2>Not a government site</h2><p>Which Senior Plan is not affiliated with or endorsed by the U.S. government or the federal Medicare program. It is not a state Medicaid agency and not a SHIP program. The Medicare name on these pages identifies the federal program. It is not our name.</p>
@@ -391,9 +449,9 @@ def legal_pages():
            "Copyright and DMCA policy", f'''<p>Last updated {D}. Original text and graphics are owned by Joshua Israel Ventures LLC. Facts are cited to public government and SHIP pages. See the <a href="{u("/image-policy/")}">image policy</a>.</p>
 <h2>Reporting infringement</h2><p>Email <a href="mailto:joshuaofisrael@gmail.com">joshuaofisrael@gmail.com</a> with your name, a description of the work, the URL on our site, a good faith statement, a statement under penalty of perjury that you are the owner or authorized to act, and your signature. We review notices and remove material when the claim holds.</p>
 <h2>Counter notice</h2><p>If we removed material and you believe that was a mistake, you may send a counter notice with the details required by 17 U.S.C. section 512(g).</p>''', legal=True)
-    simple("/ad-disclosure/", f"Advertising Disclosure | {BRAND}", "Which Senior Plan shows no ads and no affiliate links, and it does not sell insurance leads.",
-           "Advertising and affiliate disclosure", f'''<p>Last updated {D}. Which Senior Plan is free to read. The site shows no ads and uses no affiliate links. We do not sell leads and we do not take payment from an insurance company for a mention.</p>
-<p>If ads or affiliate links are added later, they will be labeled and this page will change first. Advertisers will not get to edit a guide. Questions: <a href="mailto:joshuaofisrael@gmail.com">joshuaofisrael@gmail.com</a>.</p>''', legal=True)
+    simple("/ad-disclosure/", f"Advertising Disclosure | {BRAND}", "Which Senior Plan AdSense status, affiliate links, and insurance lead policy.",
+           "Advertising and affiliate disclosure", f'''<p>Last updated 19 Nov 2026. Which Senior Plan is free to read. We do not sell leads and we do not take payment from an insurance company for a mention. There are no affiliate links.</p>
+<p>A Google AdSense account tag is present for publisher verification ({ADSENSE_PUB}). No ad units are shown on the pages yet. The sellers file is <a href="{u("/ads.txt")}">ads.txt</a>. If display ads start, they will be labeled and this page will change first. Advertisers will not get to edit a guide. Questions: <a href="mailto:joshuaofisrael@gmail.com">joshuaofisrael@gmail.com</a>.</p>''', legal=True, modified="2026-11-19")
 
 def not_found():
     body = f'<h1>Page not found</h1><p>That address is not on this site. Try the <a href="{u("/guides/")}">guides</a> or the <a href="{u("/states/")}">state list</a>.</p>'
@@ -422,6 +480,9 @@ def images():
 def extras():
     open(os.path.join(ROOT, "CNAME"), "w", encoding="utf-8").write("whichseniorplan.com\n")
     open(os.path.join(ROOT, f"{INDEXNOW_KEY}.txt"), "w", encoding="utf-8").write(INDEXNOW_KEY)
+    open(os.path.join(ROOT, "ads.txt"), "w", encoding="utf-8").write(
+        f"google.com, pub-{ADSENSE_PUB.split('ca-pub-')[-1]}, DIRECT, f08c47fec0942fa0\n"
+    )
     bots = ["*", "Googlebot", "Bingbot", "Mediapartners-Google", "OAI-SearchBot", "ChatGPT-User", "GPTBot", "PerplexityBot", "Perplexity-User", "ClaudeBot", "Claude-SearchBot", "Claude-User", "Google-Extended", "Applebot", "Applebot-Extended", "DuckAssistBot", "Amazonbot", "CCBot", "Bytespider"]
     open(os.path.join(ROOT, "robots.txt"), "w", encoding="utf-8").write("".join(f"User-agent: {b}\nAllow: /\n\n" for b in bots) + f"Sitemap: {BASE}sitemap.xml\n")
     open(os.path.join(ROOT, "sitemap.xml"), "w", encoding="utf-8").write(
