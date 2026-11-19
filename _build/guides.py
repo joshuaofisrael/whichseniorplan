@@ -620,6 +620,9 @@ h1="Is the Medicare give back benefit real?",
 desc="Yes, but it is a Medicare Part B premium reduction some Advantage plans offer, not a check. What CMS rules and Medicare.gov say.",
 published="2026-11-18",
 checked="18 Nov 2026",
+image="/assets/images/calculator-tax-forms.png",
+image_alt="Calculator, pen and paperwork on a kitchen table",
+image_caption="AI-generated thumbnail for this give back guide.",
 body="""
 <div class="answer"><p><strong>Short version:</strong> Yes, the benefit is real, but Medicare.gov calls it a Part B premium reduction, not a give back. Only some Medicare Advantage plans offer it. It lowers what is withheld from your Social Security check or billed to you. It is never paid to you as cash.</p></div>
 <p>Medicare.gov says some Medicare Advantage plans will help pay all or part of a member's Part B premium, and that this is sometimes called a Medicare Part B premium reduction. The feature is not available in every area, and a specific plan has to choose to offer it. The standard 2026 Part B premium is $202.90 a month, and the reduction cannot be larger than that amount.</p>
@@ -638,6 +641,12 @@ sources=[
 ("Medicare Part B premium reduction rule, 42 CFR 408.21", "https://www.cms.gov/regulations-and-guidance/regulations-and-policies/quarterlyproviderupdates/downloads/cms6016f.pdf"),
 ],
 related=[("/guides/medicare-advantage/", "What Medicare Advantage is"), ("/guides/medicare-costs-2026/", "2026 Medicare costs"), ("/guides/medicare-costs-2027/", "2027 Medicare costs"), ("/guides/how-to-compare-plans/", "How to compare plans")],
+next_reads=[
+("/guides/medicare-advantage/", "What Medicare Advantage is", "/assets/images/calculator-tax-forms-thumb.png", "Calculator, pen and paperwork on a kitchen table"),
+("/guides/medicare-costs-2027/", "2027 Medicare costs from CMS", "/assets/images/calculator-tax-forms-thumb.png", "Calculator, pen and paperwork on a kitchen table"),
+("/guides/how-to-compare-plans/", "How to compare plans", "/assets/images/calculator-tax-forms-thumb.png", "Calculator, pen and paperwork on a kitchen table"),
+("/guides/ship-counseling/", "Free SHIP counseling", "/assets/images/calculator-tax-forms-thumb.png", "Calculator, pen and paperwork on a kitchen table"),
+],
 )
 
 add(
