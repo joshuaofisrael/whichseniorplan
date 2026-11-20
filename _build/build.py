@@ -9,6 +9,7 @@ import html, json, os, re, sys
 from PIL import Image, ImageDraw, ImageFont
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from guides import GUIDES
+from state_extras import EXTRAS
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LAUNCH = "--launch" in sys.argv  # single flag: False until whichseniorplan.com is live
 BASE = "https://whichseniorplan.com/"
@@ -249,7 +250,7 @@ def guides_index():
         ("Medigap letters", [3, 19]),
         ("Drugs", [4, 15]),
         ("Deadlines", [5, 6, 7, 8, 9, 10]),
-        ("Costs and help", [11, 22, 12, 13, 14, 16, 17]),
+        ("Costs and help", [11, 22, 23, 12, 13, 14, 16, 17]),
         ("Comparing", [18]),
         ("Programs and benefits", [20, 21]),
     ]
@@ -262,8 +263,8 @@ def guides_index():
         ("Which guide should I read first?", "Start with Original Medicare or Medicare Advantage, then open the deadline or the cost that applies to you."),
         ("How many national guides are here?", f"{len(GUIDES)} explainers on the federal rules, plus a page for each state and the District of Columbia."),
     ]
-    GUIDES_INDEX_UPDATED = "2026-11-19"
-    body = f'<article class="prose"><h1>Guides</h1>{byline(GUIDES_INDEX_UPDATED)}{notice()}<p>{len(GUIDES)} explainers on the federal rules, plus a page for each state and the District of Columbia. Start with the choice between Original Medicare and Medicare Advantage, then open the deadline or the cost that applies to you. The <a href="{u("/guides/medicare-costs-2027/")}">2027 Medicare costs</a> page has the new Part A and Part B amounts from CMS.</p>{"".join(blocks)}<p><a href="{u("/states/")}">State contacts</a> · <a href="{u("/guides/how-to-compare-plans/")}">How to compare plans</a></p>{faq_block(faqs)}</article>'
+    GUIDES_INDEX_UPDATED = "2026-11-20"
+    body = f'<article class="prose"><h1>Guides</h1>{byline(GUIDES_INDEX_UPDATED)}{notice()}<p>{len(GUIDES)} explainers on the federal rules, plus a page for each state and the District of Columbia. Start with the choice between Original Medicare and Medicare Advantage, then open the deadline or the cost that applies to you. The <a href="{u("/guides/medicare-costs-2027/")}">2027 Medicare costs</a> page has the new Part A and Part B amounts from CMS. Income brackets that raise those premiums are on the <a href="{u("/guides/irmaa-brackets-2027/")}">2027 IRMAA</a> page.</p>{"".join(blocks)}<p><a href="{u("/states/")}">State contacts</a> · <a href="{u("/guides/how-to-compare-plans/")}">How to compare plans</a></p>{faq_block(faqs)}</article>'
     desc = "Plain English guides to Medicare plan choices, deadlines, Medigap letters, Part D, PACE, and state help lines."
     write("/guides/", page("/guides/", "Which Medicare Guide Should I Read?", desc, body,
                            [article_ld("Guides", "/guides/", modified=GUIDES_INDEX_UPDATED), faq_ld(faqs)],
@@ -310,7 +311,18 @@ def state_pages():
             sources.append(("Compare Medigap plan benefits", "https://www.medicare.gov/health-drug-plans/medigap/basics/compare-plan-benefits"))
         if s["doi"]:
             sources.append(("State insurance department", s["doi"]))
-        body = f'''<article class="prose"><h1>Medicare plan choices in {E(place)}</h1>{byline()}{notice()}
+        extra = EXTRAS.get(s["slug"])
+        if extra:
+            faqs = faqs + list(extra["faqs"])
+            sources = sources + list(extra["sources"])
+        checked = extra["checked"] if extra else CHECKED
+        h1 = extra["h1"] if extra else f"Medicare plan choices in {place}"
+        extra_html = expand(extra["html"]) if extra else ""
+        compare = expand(extra["compare_html"]) if extra else ""
+        reads = extra["next_reads"] if extra else None
+        mid = next_reads_html(reads, "Related guides") if reads else ""
+        end = next_reads_html(reads, "Keep reading") if reads else ""
+        body = f'''<article class="prose"><h1>{E(h1)}</h1>{byline(checked)}{notice()}
 <div class="answer"><p><strong>Who to call in {E(place)}:</strong> {E(s["ship_name"])}, {E(s["ship_contacts"][0]["value"])}. For help paying premiums, {E(s["medicaid"]["agency"])} runs the state Medicaid and Medicare Savings Programs. We do not list private plan names or premiums.</p></div>
 <h2>Free counseling</h2>
 <div class="tablewrap"><table class="stats"><tbody>
@@ -330,20 +342,26 @@ def state_pages():
 {higher}
 <h2>Medigap in this state</h2>
 {medigap_note(s)}
-{doi}
+{doi}{extra_html}{compare}
 <h2>What is the same in every state</h2>
 <p>Part A and Part B rules, the 2026 federal premiums on our <a href="{u("/guides/medicare-costs-2026/")}">costs page</a>, and the <a href="{u("/guides/enrollment-periods/")}">enrollment deadlines</a> come from federal law. Advantage and drug plans that are actually sold here are local. Compare them on Medicare.gov or with the counseling program above. Read <a href="{u("/guides/original-medicare-vs-medicare-advantage/")}">Original Medicare or Medicare Advantage</a> before you pick a path.</p>
-{faq_block(faqs)}
+{mid}{faq_block(faqs)}
 <section class="sources"><h2>Sources</h2>{src_list(sources)}
-<p class="note">Last checked {CHECKED}. SHIP facts are from that state's shiphelp.org page. Medicaid facts are from the Medicaid.gov state directory.</p></section>
-<p class="related"><a href="{u("/states/")}">All states</a> · <a href="{u("/guides/ship-counseling/")}">About SHIP</a> · <a href="{u("/guides/how-to-compare-plans/")}">How to compare plans</a></p>
+<p class="note">Last checked {checked}. SHIP facts are from that state's shiphelp.org page. Medicaid facts are from the Medicaid.gov state directory.</p></section>
+{end}<p class="related"><a href="{u("/states/")}">All states</a> · <a href="{u("/guides/ship-counseling/")}">About SHIP</a> · <a href="{u("/guides/how-to-compare-plans/")}">How to compare plans</a></p>
 </article>'''
-        desc = f"Free Medicare counseling, Medicaid, and Medigap rules in {label}. Official phones, no plan sales."
-        if len(desc) > 155:
-            desc = f"SHIP, Medicaid, and Medigap contacts for {label}. Official numbers only. No plan sales."
-        title = f"Which Medicare Help Is in {label}?"
-        write(path, page(path, title, desc, body, [article_ld(f"Medicare plan choices in {place}", path), faq_ld(faqs)],
-                         [("/", "Home"), ("/states/", "States"), (path, label)], kind="article"))
+        if extra:
+            desc = extra["desc"]
+            title = extra["title"]
+            mod = extra["modified"]
+        else:
+            desc = f"Free Medicare counseling, Medicaid, and Medigap rules in {label}. Official phones, no plan sales."
+            if len(desc) > 155:
+                desc = f"SHIP, Medicaid, and Medigap contacts for {label}. Official numbers only. No plan sales."
+            title = f"Which Medicare Help Is in {label}?"
+            mod = None
+        write(path, page(path, title, desc, body, [article_ld(h1, path, modified=mod), faq_ld(faqs)],
+                         [("/", "Home"), ("/states/", "States"), (path, label)], kind="article", lastmod=mod))
 
 def states_index():
     items = []
@@ -380,13 +398,13 @@ def home():
 <p class="btnrow"><a class="btn" href="{u("/guides/original-medicare-vs-medicare-advantage/")}">Compare the two paths</a> <a class="btn alt" href="{u("/guides/enrollment-periods/")}">See the deadlines</a></p>
 </section>
 <h2>Start here</h2><ul class="cards">{cards}</ul>
-<h2>All {len(GUIDES)} guides</h2><p><a href="{u("/guides/")}">Browse every explainer</a>, from the <a href="{u("/guides/medicare-costs-2027/")}">2027 premium table</a> to Extra Help, PACE, and Medigap open enrollment. When you are ready to look at real contracts, read <a href="{u("/guides/how-to-compare-plans/")}">how to compare plans</a>.</p>
+<h2>All {len(GUIDES)} guides</h2><p><a href="{u("/guides/")}">Browse every explainer</a>, from the <a href="{u("/guides/medicare-costs-2027/")}">2027 premium table</a> and the <a href="{u("/guides/irmaa-brackets-2027/")}">2027 IRMAA brackets</a> to Extra Help, PACE, and Medigap open enrollment. When you are ready to look at real contracts, read <a href="{u("/guides/how-to-compare-plans/")}">how to compare plans</a>.</p>
 <h2>How the numbers are chosen</h2>
 <p>A dollar amount appears only when an official page labels it for that year. Private plan premiums and plan names do not appear, because we will not invent them. The editorial rules are public on the <a href="{u("/editorial-policy/")}">editorial and sources policy</a>.</p>
 {faq_block(faqs)}'''
     write("/", page("/", "Which Senior Health Plan Should I Pick?",
                     "Which senior health plan should you look at? Plain English guides to Original Medicare, Advantage, Medigap, Part D, and free counseling.",
-                    body, faq_ld(faqs), lastmod="2026-11-19"))
+                    body, faq_ld(faqs), lastmod="2026-11-20"))
 
 def simple(path, title, desc, h1, inner, legal=False, modified=None):
     body = f'<article class="prose"><h1>{E(h1)}</h1>{inner}</article>'
@@ -508,7 +526,7 @@ def extras():
         + "".join(f"<url><loc>{url(p)}</loc><lastmod>{m}</lastmod></url>\n" for p, m in PAGES) + "</urlset>\n")
     lines = [f"# {BRAND}", "",
              "> Which Senior Plan (whichseniorplan.com) explains Original Medicare, Medicare Advantage, Medigap letters, Part D, enrollment deadlines, SHIP counseling, and state Medicaid programs in plain English. It is not a government site, it does not sell plans, and it is not insurance advice.",
-             "", f"Sources checked {CHECKED}. Dollar amounts are 2026 figures only where the official page labels them as 2026.", "", "## Guides"]
+             "", "Dollar amounts are printed only for the year the official page labels them, including 2026 and 2027. Each guide shows its own last checked date.", "", "## Guides"]
     for g in GUIDES:
         lines.append(f"- [{g['h1']}]({url(g['path'])})")
     lines += ["", "## States"]

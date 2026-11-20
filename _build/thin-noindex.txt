@@ -4,12 +4,10 @@
 states/alabama
 states/arizona
 states/arkansas
-states/california
 states/colorado
 states/connecticut
 states/delaware
 states/district-of-columbia
-states/florida
 states/georgia
 states/idaho
 states/illinois
@@ -29,7 +27,6 @@ states/nevada
 states/new-hampshire
 states/new-jersey
 states/new-mexico
-states/new-york
 states/north-carolina
 states/north-dakota
 states/ohio
@@ -40,7 +37,6 @@ states/rhode-island
 states/south-carolina
 states/south-dakota
 states/tennessee
-states/texas
 states/utah
 states/vermont
 states/virginia
