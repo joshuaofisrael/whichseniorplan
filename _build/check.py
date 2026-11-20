@@ -8,6 +8,24 @@ import glob, html, json, os, re, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "_build"))
 from guides import GUIDES
+
+# Paths in _build/thin-noindex.txt are intentionally noindex (AdSense low-value-content fix, 20 Nov 2026).
+import os as _os
+_THIN = set()
+try:
+    with open(_os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "thin-noindex.txt"), encoding="utf-8") as _fh:
+        _THIN = {l.strip().strip("/") for l in _fh if l.strip() and not l.startswith("#")}
+except FileNotFoundError:
+    pass
+
+
+def _thin_rel(rel):
+    r = str(rel).replace("\\", "/")
+    if r.endswith("index.html"):
+        r = r[: -len("index.html")]
+    return r.strip("/") in _THIN
+
+
 LAUNCH = "--launch" in sys.argv
 LEGAL = {"terms", "privacy", "disclaimer", "copyright", "ad-disclosure", "editorial-policy"}
 NEED_BOTS = ["Googlebot", "Bingbot", "GPTBot", "ClaudeBot", "PerplexityBot", "OAI-SearchBot", "CCBot", "Google-Extended", "Applebot-Extended", "Bytespider"]
@@ -92,7 +110,7 @@ for f in files:
         if len(d) < 40:
             fail(f"shortdesc {len(d)} {rel}")
     if LAUNCH:
-        if rel != "404.html" and "noindex" in raw:
+        if rel != "404.html" and "noindex" in raw and not _thin_rel(rel):
             fail(f"noindex {rel}")
         if "static.cloudflareinsights.com/beacon.min.js" not in raw:
             fail(f"nobeacon {rel}")

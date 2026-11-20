@@ -58,7 +58,24 @@ def crumbs_html(crumbs):
             items.append(f'<li aria-current="page">{E(n)}</li>')
     return '<nav class="crumbs" aria-label="Breadcrumb"><ol>' + "".join(items) + "</ol></nav>"
 
+# AdSense low-value-content fix (20 Nov 2026): paths listed in _build/thin-noindex.txt
+# get noindex,follow and stay out of the sitemap until they have real unique substance.
+_THIN_NOINDEX = set()
+try:
+    import os as _os
+    with open(_os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "thin-noindex.txt"), encoding="utf-8") as _fh:
+        _THIN_NOINDEX = {l.strip().strip("/") for l in _fh if l.strip() and not l.startswith("#")}
+except FileNotFoundError:
+    pass
+
+
+def _is_thin(path):
+    return str(path).strip("/") in _THIN_NOINDEX
+
+
 def page(path, title, desc, body, jsonld=None, crumbs=None, noindex=False, legal=False, kind="website", lastmod=None, og_image=None):
+    if _is_thin(path):
+        noindex = True
     if len(title) >= 60:
         raise SystemExit(f"title {len(title)} {title}")
     if len(desc) > 155 or len(desc) < 40:
@@ -438,6 +455,7 @@ def legal_pages():
 <h2 id="analytics">Analytics</h2><p>{"Cloudflare Web Analytics loads on every public page and counts page views. It does not use cookies and it does not track you across other sites. Google Analytics 4 loads only after you accept the consent banner. Consent Mode v2 starts with ad storage, ad user data, ad personalization, and analytics storage denied. If you decline, the Google tag is not requested. Cookie settings in the footer opens that choice again. Accepting stores the choice in local storage in this browser. The site does not set its own tracking cookie. Advertising storage stays denied either way." if LAUNCH else "This preview build does not load Cloudflare Web Analytics or Google Analytics 4. The launch build loads Cloudflare Web Analytics on every page. That tool counts page views, does not use cookies, and does not track you across other sites. Google Analytics 4 loads only after you accept the consent banner. Consent Mode v2 starts with ad storage, ad user data, ad personalization, and analytics storage denied. If you decline, the Google tag is not requested. Cookie settings in the footer opens that choice again. Advertising storage stays denied either way."}</p>
 <h2>Hosting</h2><p>GitHub Pages hosts the files and may log IP addresses for security.</p>
 <h2 id="advertising">Advertising</h2><p>The site includes a Google AdSense account tag (publisher id {ADSENSE_PUB}) so Google can verify the domain. No ad units are placed on the pages yet, and Consent Mode keeps advertising storage denied until that changes. The authorized digital sellers file is at <a href="{u("/ads.txt")}">/ads.txt</a>. If display ads are turned on later, this section and the <a href="{u("/ad-disclosure/")}">advertising disclosure</a> will say so first. Advertisers do not edit guides. We do not sell insurance leads.</p>
+<h2>Google advertising cookies and your choices</h2><p>Third-party vendors, including Google, use cookies to serve ads based on a user's prior visits to this website or other websites. Google's use of advertising cookies enables it and its partners to serve ads based on your visit to this site and/or other sites on the Internet. You may opt out of personalized advertising by visiting <a href="https://adssettings.google.com/" rel="nofollow noopener">Google Ads Settings</a>. Alternatively, you can opt out of a third-party vendor's use of cookies for personalized advertising at <a href="https://www.aboutads.info/choices/" rel="nofollow noopener">aboutads.info/choices</a>. For more information, see <a href="https://policies.google.com/technologies/partner-sites" rel="nofollow noopener">how Google uses information from sites or apps that use its services</a>.</p>
 <h2>Children</h2><p>The site is not directed to children under 13.</p>''', legal=True, modified="2026-11-19")
     simple("/disclaimer/", f"Disclaimer | {BRAND}", "Which Senior Plan is not a government site, does not sell insurance, and does not give insurance advice.",
            "Disclaimer", f'''<p>Last updated {D}.</p>
