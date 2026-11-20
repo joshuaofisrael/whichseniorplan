@@ -24,7 +24,7 @@ The exact launch command is in LAUNCH-NOTES.md. `check.py --launch` fails while 
 
 ## What v1 contains
 
-- 23 national guides under `/guides/` (20 at launch, plus give back and PACE on 18 Nov 2026, plus Medicare costs 2027 on 19 Nov 2026)
+- 24 national guides under `/guides/` (20 at launch, plus give back and PACE on 18 Nov 2026, plus Medicare costs 2027 on 19 Nov 2026, plus 2027 IRMAA brackets on 20 Nov 2026)
 - 51 state pages (50 states and the District of Columbia) under `/states/`
 - Home, guides index, states index with a state picker
 - About, editorial and sources policy, image policy, contact (mailto joshuaofisrael@gmail.com, no form), terms, privacy, disclaimer, advertising disclosure, copyright

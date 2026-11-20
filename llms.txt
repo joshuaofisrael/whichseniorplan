@@ -2,7 +2,7 @@
 
 > Which Senior Plan (whichseniorplan.com) explains Original Medicare, Medicare Advantage, Medigap letters, Part D, enrollment deadlines, SHIP counseling, and state Medicaid programs in plain English. It is not a government site, it does not sell plans, and it is not insurance advice.
 
-Sources checked 16 Nov 2026. Dollar amounts are 2026 figures only where the official page labels them as 2026.
+Dollar amounts are printed only for the year the official page labels them, including 2026 and 2027. Each guide shows its own last checked date.
 
 ## Guides
 - [Original Medicare or Medicare Advantage](https://whichseniorplan.com/guides/original-medicare-vs-medicare-advantage/)
@@ -15,7 +15,7 @@ Sources checked 16 Nov 2026. Dollar amounts are 2026 figures only where the offi
 - [Open enrollment: October 15 to December 7](https://whichseniorplan.com/guides/open-enrollment/)
 - [Medicare Advantage open enrollment](https://whichseniorplan.com/guides/medicare-advantage-open-enrollment/)
 - [Special enrollment periods](https://whichseniorplan.com/guides/special-enrollment-periods/)
-- [General enrollment and late penalties](https://whichseniorplan.com/guides/general-enrollment-and-penalties/)
+- [How the Part B late enrollment penalty is calculated](https://whichseniorplan.com/guides/general-enrollment-and-penalties/)
 - [Medicare costs in 2026](https://whichseniorplan.com/guides/medicare-costs-2026/)
 - [What Medicare covers](https://whichseniorplan.com/guides/what-medicare-covers/)
 - [What Original Medicare does not cover](https://whichseniorplan.com/guides/what-medicare-does-not-cover/)
@@ -28,6 +28,7 @@ Sources checked 16 Nov 2026. Dollar amounts are 2026 figures only where the offi
 - [Is the Medicare give back benefit real?](https://whichseniorplan.com/guides/medicare-give-back-benefit/)
 - [What is the PACE program for seniors?](https://whichseniorplan.com/guides/pace-program/)
 - [Medicare costs in 2027](https://whichseniorplan.com/guides/medicare-costs-2027/)
+- [2027 IRMAA brackets for Part B and Part D](https://whichseniorplan.com/guides/irmaa-brackets-2027/)
 
 ## States
 - [Alabama](https://whichseniorplan.com/states/alabama/)
