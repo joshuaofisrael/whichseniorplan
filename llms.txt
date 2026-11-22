@@ -19,7 +19,7 @@ Dollar amounts are printed only for the year the official page labels them, incl
 - [Medicare costs in 2026](https://whichseniorplan.com/guides/medicare-costs-2026/)
 - [What Medicare covers](https://whichseniorplan.com/guides/what-medicare-covers/)
 - [What Original Medicare does not cover](https://whichseniorplan.com/guides/what-medicare-does-not-cover/)
-- [Medicare Savings Programs](https://whichseniorplan.com/guides/medicare-savings-programs/)
+- [Medicare Savings Program income limits in 2026](https://whichseniorplan.com/guides/medicare-savings-programs/)
 - [Extra Help with drug costs](https://whichseniorplan.com/guides/extra-help/)
 - [Free SHIP counseling](https://whichseniorplan.com/guides/ship-counseling/)
 - [Medicare and Medicaid together](https://whichseniorplan.com/guides/medicare-and-medicaid/)
@@ -29,6 +29,7 @@ Dollar amounts are printed only for the year the official page labels them, incl
 - [What is the PACE program for seniors?](https://whichseniorplan.com/guides/pace-program/)
 - [Medicare costs in 2027](https://whichseniorplan.com/guides/medicare-costs-2027/)
 - [2027 IRMAA brackets for Part B and Part D](https://whichseniorplan.com/guides/irmaa-brackets-2027/)
+- [Medigap guaranteed issue rights](https://whichseniorplan.com/guides/medigap-guaranteed-issue-rights/)
 
 ## States
 - [Alabama](https://whichseniorplan.com/states/alabama/)

@@ -93,9 +93,15 @@ related=[("/guides/original-medicare-vs-medicare-advantage/", "Compare the two p
 
 add(
 path="/guides/medigap-plan-letters/",
-title="Which Medigap Letter Should I Compare?",
+title="Same Medigap Letter Means the Same Benefits",
 h1="Medigap plan letters",
-desc="What Medigap letters A through N cover in 2026, who can buy Plan C or F, and why Massachusetts, Minnesota, and Wisconsin differ.",
+desc="In most states the same Medigap letter covers the same benefits. The 2026 chart, who can buy C or F, and the three state designs.",
+modified="2026-11-21",
+checked="21 Nov 2026",
+image="/assets/images/retirement-tea-papers.png",
+image_alt="Older hands resting on a mug beside printed charts and papers on a wooden table",
+image_caption="Thumbnail for the Medigap letter chart.",
+compare_html='<aside class="compare" aria-label="Check another Medigap rule"><p><strong>The letter is not the window.</strong> This chart is what a letter pays. Whether a company must sell it to you is a different question. The one time 6 month window is [[/guides/medigap-open-enrollment/|Medigap open enrollment]]. Later federal situations are [[/guides/medigap-guaranteed-issue-rights/|guaranteed issue rights]], and those usually do not include every letter.</p></aside>',
 body="""
 <div class="answer"><p><strong>Short version:</strong> In most states a Medigap letter means a fixed set of benefits. Plan G from one company has the same basic benefits as Plan G from another. The price is what changes. We do not list prices or company names.</p></div>
 <p>Medicare.gov says you generally must have Part A and Part B to buy Medigap. Policies help pay your share of Original Medicare costs, such as copays, coinsurance, and deductibles. There are 10 standardized letters in most states: A, B, C, D, F, G, K, L, M, and N. Yes in the table means the plan covers that benefit. No means it does not.</p>
@@ -116,7 +122,8 @@ body="""
 <p>If you were eligible for Medicare before January 1, 2020, you may still be able to buy Plan C or Plan F. If you became eligible on or after that date, you cannot buy Plan C or Plan F. Medicare.gov says Plans D and G give the same benefits as C and F except the Part B deductible, which only C and F cover.</p>
 <h2>Three states use different designs</h2>
 <p>Massachusetts uses a Core Plan, a Supplement 1 Plan, and a Supplement 1A Plan. Supplement 1 includes the Part B deductible and is no longer sold to people who became eligible on or after January 1, 2020. Minnesota uses a Basic Plan and an Extended Basic Plan, and it also has its own versions of some letters. Wisconsin has one base plan, optional riders, cost sharing plans similar to K and L, and a high deductible option. See the [[/states/massachusetts/|Massachusetts]], [[/states/minnesota/|Minnesota]], and [[/states/wisconsin/|Wisconsin]] pages.</p>
-<p>When you can buy a letter without medical questions is the [[/guides/medigap-open-enrollment/|Medigap open enrollment]] window, which is not the same as the fall Medicare open enrollment.</p>
+<p>When you can buy a letter without medical questions is the [[/guides/medigap-open-enrollment/|Medigap open enrollment]] window, which is not the same as the fall Medicare open enrollment. Outside that window, a company can refuse to sell, unless you have a [[/guides/medigap-guaranteed-issue-rights/|guaranteed issue right]]. The March 2026 CMS guide, Choosing a Medigap Policy (product 02110), says those rights usually cover Plans A, B, C, D, F, or G, not every letter on this chart. People new to Medicare on or after January 1, 2020 get Plan D or G in place of C or F. The live Medicare.gov tool, read 21 Nov 2026, adds K and L on some of the same situations. Both sources are linked on the guaranteed issue page. This chart does not pick a letter for you.</p>
+<!--NEXT_READS-->
 """,
 faqs=[
 ("Are Medigap Plan G benefits the same at every company?", "Yes, in states that use the standard letters. Medicare.gov says the same letter has the same basic benefits no matter which company sells it. The premium is the difference."),
@@ -126,11 +133,18 @@ faqs=[
 sources=[
 ("Compare Medigap plan benefits", "https://www.medicare.gov/health-drug-plans/medigap/basics/compare-plan-benefits"),
 ("Medigap basics", "https://www.medicare.gov/health-drug-plans/medigap/basics"),
+("Choosing a Medigap Policy, CMS product 02110, March 2026", "https://www.medicare.gov/publications/02110-choosing-a-medigap-policy.pdf"),
 ("Medigap in Massachusetts", "https://www.medicare.gov/health-drug-plans/medigap/basics/compare-plan-benefits/massachusetts"),
 ("Medigap in Minnesota", "https://www.medicare.gov/health-drug-plans/medigap/basics/compare-plan-benefits/minnesota"),
 ("Medigap in Wisconsin", "https://www.medicare.gov/health-drug-plans/medigap/basics/compare-plan-benefits/wisconsin"),
 ],
-related=[("/guides/medigap-open-enrollment/", "When you can buy"), ("/guides/original-medicare/", "Original Medicare"), ("/states/", "Your state")],
+related=[("/guides/medigap-guaranteed-issue-rights/", "When a company must sell"), ("/guides/medigap-open-enrollment/", "When you can buy"), ("/guides/original-medicare/", "Original Medicare"), ("/states/", "Your state")],
+next_reads=[
+("/guides/medigap-guaranteed-issue-rights/", "When an insurer must sell you a Medigap policy", "/assets/images/household-finances-paperwork-thumb.png", "Hands reviewing financial paperwork with a pen and coffee mug"),
+("/guides/medigap-open-enrollment/", "The one time 6 month Medigap window", "/assets/images/calculator-tax-forms-thumb.png", "Calculator, pen and paperwork on a kitchen table"),
+("/guides/original-medicare/", "What Original Medicare leaves for Medigap to pay", "/assets/images/retirement-tea-papers-thumb.png", "Older hands resting on a mug beside printed charts and papers on a wooden table"),
+("/guides/ship-counseling/", "Free counseling before you compare prices", "/assets/images/household-finances-paperwork-thumb.png", "Hands reviewing financial paperwork with a pen and coffee mug"),
+],
 )
 
 add(
@@ -173,8 +187,8 @@ path="/guides/enrollment-periods/",
 title="Which Medicare Enrollment Window Applies?",
 h1="Medicare enrollment periods and deadlines",
 desc="The 7 month first window, Oct 15 to Dec 7 for plans, Jan 1 to Mar 31, and special cases. Start dates differ.",
-modified="2026-11-20",
-checked="20 Nov 2026",
+modified="2026-11-21",
+checked="21 Nov 2026",
 image="/assets/images/household-finances-paperwork.png",
 image_alt="Hands reviewing financial paperwork with a pen and coffee mug",
 image_caption="Thumbnail for the enrollment deadlines guide.",
@@ -203,7 +217,7 @@ body="""
 <p>Medicare.gov's joining a plan page, read 20 Nov 2026, keeps the two steps apart. You need both Part A and Part B to join a Medicare Advantage plan. You need either Part A or Part B to join a standalone drug plan. You also have to live in the plan's service area. If you live in another state for part of the year, Medicare.gov says to check whether that plan will cover you there before you join.</p>
 <p>When the plan starts depends on which window you used. During fall open enrollment, coverage starts January 1, and the plan has to have the request by December 7. During Medicare Advantage open enrollment, coverage starts the first day of the month after the plan gets the request. That January window is not only January 1 through March 31. Medicare.gov also lists the first 3 months you have Medicare, and only if you are already in an Advantage plan. Someone who joined an Advantage plan during the Initial Enrollment Period can change to another Advantage plan, or go back to Original Medicare with or without a drug plan, within the first 3 months they have both Part A and Part B.</p>
 <p>There is a second Initial Enrollment Period for people who already have Part A and add Part B later. Medicare.gov says it starts 3 months before the month you are first eligible for both, and you have 2 months after you have both for the first time. Plan coverage in that window generally starts the first of the month after the plan gets the request. If you sign up for Part A or Part B during a special enrollment period because of an exceptional situation, the same page gives you 2 months to join a plan. The situations themselves are on the [[/guides/special-enrollment-periods/|special enrollment]] page, not a single calendar date.</p>
-<p>The General Enrollment Period is the Part A and Part B door if you missed the first window and you do not have a special period. It runs January 1 through March 31, and coverage starts the month after you sign up. A penalty can follow. The arithmetic is on [[/guides/general-enrollment-and-penalties/|the penalty page]], including the 2027 example Medicare.gov now prints. Medigap is still its own 6 month clock, and several states rewrite it. [[/states/new-york/|New York]] keeps applications open all year. [[/states/california/|California]] adds a birthday window. [[/states/texas/|Texas]] keeps the one time six months and splits the under 65 rules.</p>
+<p>The General Enrollment Period is the Part A and Part B door if you missed the first window and you do not have a special period. It runs January 1 through March 31, and coverage starts the month after you sign up. A penalty can follow. The arithmetic is on [[/guides/general-enrollment-and-penalties/|the penalty page]], including the 2027 example Medicare.gov now prints. Medigap is still its own 6 month clock, and several states rewrite it. A later federal right to buy certain letters is on [[/guides/medigap-guaranteed-issue-rights/|guaranteed issue rights]]. [[/states/new-york/|New York]] keeps applications open all year. [[/states/california/|California]] adds a birthday window. [[/states/texas/|Texas]] keeps the one time six months and splits the under 65 rules.</p>
 """,
 faqs=[
 ("Is October 15 the only time I can change plans?", "No. It is the main yearly window for Advantage and drug plans. Other windows apply when you first join Medicare, when you already have an Advantage plan in the first quarter or in your first 3 months with Medicare, and when you have a special situation."),
@@ -226,22 +240,33 @@ next_reads=[
 
 add(
 path="/guides/initial-enrollment-period/",
-title="Initial Enrollment Period Around Age 65 | Which Senior Plan",
+title="Your First Medicare Window Is 7 Months",
 h1="Your Initial Enrollment Period",
-desc="The 7 month Initial Enrollment Period around age 65, when coverage starts, and who gets Medicare without a separate signup.",
+desc="The first signup window is 7 months around 65. Coverage starts the first of a month, and a birthday on the 1st shifts Part A.",
+modified="2026-11-21",
+checked="21 Nov 2026",
+image="/assets/images/household-finances-paperwork.png",
+image_alt="Hands reviewing financial paperwork with a pen and coffee mug",
+image_caption="Thumbnail for the 7 month Initial Enrollment Period.",
+compare_html='<aside class="compare" aria-label="Check another signup window"><p><strong>This is not the fall plan window.</strong> October 15 to December 7 changes Advantage and drug plans. It does not replace a missed Part B signup. That wait is the [[/guides/general-enrollment-and-penalties/|January through March general enrollment]], unless a [[/guides/special-enrollment-periods/|special enrollment period]] applies. Medigap has its own 6 month clock.</p></aside>',
 body="""
-<div class="answer"><p><strong>Short version:</strong> The Initial Enrollment Period lasts 7 months. It starts 3 months before the month you turn 65 and ends 3 months after that month. If your birthday is on the first of the month, Part A can start a month earlier, and the Medicare &amp; You handbook describes a shifted 7 month window.</p></div>
-<p>Medicare.gov says this is generally your first chance to sign up. Coverage always starts on the first of a month. If you qualify for premium free Part A, that Part A starts the month you turn 65. If your birthday is the first day of the month, Part A starts the month before you turn 65.</p>
-<p>For Part B, and for Part A if you pay a premium, the start date depends on the month you sign up. Sign up before the month you turn 65 and coverage starts the month you turn 65. Sign up during the birthday month or the 3 months after and coverage starts the next month. The Medicare &amp; You handbook on Medicare.gov adds the first of the month case for the window itself: if your birthday is on the first day of a month, the 7 month period starts 4 months before that birthday month and ends 2 months after it.</p>
-<p>You can also join a Medicare Advantage plan or a drug plan during this same 7 months. You need both Part A and Part B for an Advantage plan. You need either Part A or Part B for a standalone drug plan. If you ask to join a plan before Part A or Part B starts, plan coverage starts when that Part starts. If you ask after Part A or Part B has started, plan coverage starts the first of the month after the plan gets your request.</p>
+<div class="answer"><p><strong>Short version:</strong> Medicare.gov's coverage start page, read 21 Nov 2026, still describes a 7 month Initial Enrollment Period. It starts 3 months before the month you turn 65 and ends 3 months after that month. Coverage always starts on the first of a month. Premium free Part A starts the month you turn 65, or the month before if your birthday is the first day of a month.</p></div>
+<p>This is generally the first chance to sign up. For Part B, and for Part A if you pay a premium, the start date depends on when you sign up inside those 7 months. Sign up before the month you turn 65 and coverage starts the month you turn 65. Sign up during the birthday month, or in the 3 months after, and coverage starts the next month.</p>
+<p>A birthday on the first of the month does two different jobs, and only one of them is on the page we re read. The coverage start page says premium free Part A begins the month before you turn 65. The Medicare &amp; You handbook, cited here since 16 Nov 2026, also shifts the 7 month count: the window starts 4 months before that birthday month and ends 2 months after it. We did not reopen the handbook PDF on 21 Nov 2026, so that second shift stays attributed to the handbook, not to a sentence we rechecked today.</p>
+<h2>Signing up for premium free Part A later</h2>
+<p>The same page adds a rule this guide did not spell out before. You can sign up for premium free Part A any time after you turn 65. Coverage then starts 6 months back from when you sign up, or from when you apply for Social Security or Railroad Retirement benefits. It cannot start earlier than the month you turned 65. That rollback is for premium free Part A. It is not a way to backdate Part B. After the Initial Enrollment Period ends, Part B and premium Part A wait for a [[/guides/special-enrollment-periods/|special enrollment period]] or the [[/guides/general-enrollment-and-penalties/|General Enrollment Period]] from January 1 through March 31.</p>
+<!--NEXT_READS-->
+<h2>Joining a plan is a second step in the same months</h2>
+<p>The joining a plan page, also read 21 Nov 2026, keeps plan enrollment inside this 7 month window, with its own start rule. You need both Part A and Part B for a Medicare Advantage plan, and either Part A or Part B for a standalone drug plan. If you ask to join before Part A or Part B starts, plan coverage starts the same day that Part starts. If you ask after Part A or Part B has started, plan coverage starts the first of the month after the plan gets the request. You also have to live in the plan's service area.</p>
+<p>There is a second Initial Enrollment Period if you already have Part A and add Part B later. It starts 3 months before the month you are first eligible for both, and you have 2 months after you have both for the first time. Plan coverage in that window generally starts the first of the month after the plan gets the request. The full set of windows is on [[/guides/enrollment-periods/|enrollment periods]].</p>
 <h2>Some people are enrolled without filing</h2>
 <p>Medicare.gov says you get Part A and Part B automatically if you already receive Social Security or Railroad Retirement benefits, including if those benefits start at least 4 months before you turn 65. People with ALS get Medicare the month disability benefits start. Other people under 65 get Medicare after 24 months of disability benefits. In Puerto Rico and outside the United States, Part A can start automatically while Part B still requires a signup.</p>
-<p>If none of that applies, you contact Social Security to sign up. Medicare.gov lists the phone as 1-800-772-1213, and TTY 1-800-325-0778. If you or your spouse worked for a railroad, the Railroad Retirement Board number listed on Medicare.gov is 1-877-772-5772. Missing this window can mean waiting until the [[/guides/general-enrollment-and-penalties/|General Enrollment Period]] and paying a penalty, unless you have a [[/guides/special-enrollment-periods/|special enrollment period]].</p>
+<p>If none of that applies, you contact Social Security. Medicare.gov lists 1-800-772-1213, and TTY 1-800-325-0778. If you or your spouse worked for a railroad, the Railroad Retirement Board number on Medicare.gov is 1-877-772-5772. Missing this window can mean a penalty. The 10 percent math, including the 2026 and 2027 examples, is on the penalty page. A [[/guides/ship-counseling/|SHIP counselor]] can help you read the dates. This site will not tell you which plan to join once you are signed up.</p>
 """,
 faqs=[
-("How long is the first signup window?", "Seven months: 3 months before the month you turn 65, the birthday month, and 3 months after. A birthday on the first of the month changes the start of Part A and, in the Medicare & You handbook, the count of the 7 months."),
+("How long is the first signup window?", "Seven months: 3 months before the month you turn 65, the birthday month, and 3 months after. A birthday on the first of the month moves premium free Part A to the prior month. The Medicare & You handbook also shifts the count of the 7 months. We re read the Part A rule on 21 Nov 2026 and did not reopen the handbook that day."),
+("If I sign up for premium free Part A after 65, when does it start?", "Medicare.gov says coverage starts 6 months back from the signup, or from the Social Security or Railroad Retirement application, and not earlier than the month you turned 65. That rollback is not for Part B."),
 ("Do I have to call Medicare to enroll in Part A and Part B?", "You contact Social Security, or the Railroad Retirement Board if your work record is there. Medicare.gov says an online Social Security account is the fastest path for people who need to sign up."),
-("When should I look at a drug plan?", "During the same Initial Enrollment Period if you want drug coverage as soon as you are eligible. Waiting 63 days or more without creditable drug coverage can cause a Part D penalty."),
 ],
 sources=[
 ("When does Medicare coverage start?", "https://www.medicare.gov/basics/get-started-with-medicare/sign-up/when-does-medicare-coverage-start"),
@@ -249,54 +274,93 @@ sources=[
 ("Joining a plan", "https://www.medicare.gov/basics/get-started-with-medicare/get-more-coverage/joining-a-plan"),
 ("Medicare & You handbook", "https://www.medicare.gov/publications/10050-medicare-and-you.pdf"),
 ],
-related=[("/guides/enrollment-periods/", "All the windows"), ("/guides/special-enrollment-periods/", "If you have job coverage"), ("/guides/medigap-open-enrollment/", "Medigap timing")],
+related=[("/guides/enrollment-periods/", "All the windows"), ("/guides/special-enrollment-periods/", "If you have job coverage"), ("/guides/general-enrollment-and-penalties/", "If you miss it"), ("/guides/medigap-open-enrollment/", "Medigap timing")],
+next_reads=[
+("/guides/enrollment-periods/", "All the Medicare windows on one page", "/assets/images/household-finances-paperwork-thumb.png", "Hands reviewing financial paperwork with a pen and coffee mug"),
+("/guides/special-enrollment-periods/", "The 8 month window after job coverage ends", "/assets/images/household-finances-paperwork-thumb.png", "Hands reviewing financial paperwork with a pen and coffee mug"),
+("/guides/general-enrollment-and-penalties/", "What a late Part B signup costs", "/assets/images/piggy-bank-rain-thumb.png", "Pink ceramic piggy bank and coins on a rainy windowsill"),
+("/guides/medigap-open-enrollment/", "The separate 6 month Medigap window", "/assets/images/calculator-tax-forms-thumb.png", "Calculator, pen and paperwork on a kitchen table"),
+],
 )
 
 add(
 path="/guides/open-enrollment/",
-title="Which Fall Medicare Deadline Should I Use?",
+title="Fall Medicare Enrollment: Oct 15 to Dec 7",
 h1="Open enrollment: October 15 to December 7",
-desc="From October 15 through December 7 you can change Advantage and drug plans. Coverage starts January 1.",
+desc="October 15 through December 7 is the yearly window to change Advantage and drug plans. New coverage starts January 1.",
+modified="2026-11-21",
+checked="21 Nov 2026",
+image="/assets/images/household-finances-paperwork.png",
+image_alt="Hands reviewing financial paperwork with a pen and coffee mug",
+image_caption="Thumbnail for the October 15 to December 7 enrollment window.",
+compare_html='<aside class="compare" aria-label="Check another fall deadline"><p><strong>December 7 is not a Medigap deadline.</strong> This window changes Advantage and drug plans. The one time Medigap window is [[/guides/medigap-open-enrollment/|six months from Part B at 65 or older]]. A later right to buy certain letters is [[/guides/medigap-guaranteed-issue-rights/|guaranteed issue]], and the fall calendar does not create it. People already in an Advantage plan get another switch from [[/guides/medicare-advantage-open-enrollment/|January 1 to March 31]].</p></aside>',
 body="""
-<div class="answer"><p><strong>Short version:</strong> October 15 through December 7 is the yearly open enrollment for Medicare Advantage and Medicare drug plans. If the plan gets your request by December 7, the new coverage starts January 1.</p></div>
-<p>Medicare.gov says that during this period you can join, drop, or switch to another Medicare Advantage plan with or without drug coverage. You can move from Original Medicare to Medicare Advantage, or from Medicare Advantage back to Original Medicare. If you are in Original Medicare, you can join, drop, or switch a standalone drug plan.</p>
-<p>This is not a new Initial Enrollment Period for Part B. If you never signed up for Part B, this fall window does not replace the [[/guides/general-enrollment-and-penalties/|General Enrollment Period]] or a special enrollment period. It is also not the one time [[/guides/medigap-open-enrollment/|Medigap open enrollment]]. Dropping an Advantage plan in the fall does not by itself give you a fresh right to buy any Medigap letter without health questions.</p>
-<p>SHIP counselors are busiest in this season. The national SHIP line published by shiphelp.org is 1-877-839-2675, and 1-800-MEDICARE is 1-800-633-4227 (TTY 1-877-486-2048). Your state page lists the local program. We do not run a plan picker and we do not ask for your Medicare number.</p>
+<div class="answer"><p><strong>Short version:</strong> October 15 through December 7 is the yearly open enrollment for Medicare Advantage and Medicare drug plans. Medicare.gov's joining a plan page, read 21 Nov 2026, says the new coverage starts January 1, and the plan has to have your request by December 7.</p></div>
+<p>During those weeks you can join, drop, or switch to another Medicare Advantage plan, with or without drug coverage. You can move from Original Medicare to Medicare Advantage, or from Medicare Advantage back to Original Medicare. If you stay with Original Medicare, you can join, drop, or switch a standalone drug plan. You have to live in the plan's service area. If you live in another state for part of the year, Medicare.gov says to check whether that plan will cover you there before you join.</p>
+<p>This is not a new [[/guides/initial-enrollment-period/|Initial Enrollment Period]] for Part B. If you never signed up for Part B, the fall does not replace the [[/guides/general-enrollment-and-penalties/|General Enrollment Period]] or a [[/guides/special-enrollment-periods/|special enrollment period]]. It is also not the one time [[/guides/medigap-open-enrollment/|Medigap open enrollment]]. Dropping an Advantage plan in the fall does not by itself give you a right to buy any Medigap letter without health questions. Those later rights are specific situations on the [[/guides/medigap-guaranteed-issue-rights/|guaranteed issue]] page, with their own 63 day clocks.</p>
+<!--NEXT_READS-->
+<h2>How a fall request actually gets in</h2>
+<p>The joining a plan page lists three ways, and none of them is a form on this site. You can select Enroll for a plan at medicare.gov/plan-compare. You can contact the plan, by phone, on its site, or with a paper form the plan has to receive before December 7. Or you can call 1-800-MEDICARE at 1-800-633-4227 (TTY 1-877-486-2048). You need your Medicare number and your Part A and Part B start dates, which are on the Medicare card. To join an Advantage plan you need both parts. A standalone drug plan needs either one.</p>
+<p>Before that call, Medicare.gov's own checklist is practical and it is not a recommendation of a company. Add the prescriptions you take so the cost estimate is about your drugs. Ask the doctors and the pharmacy whether they are in the plan's network. Read the premium, the deductible, and the yearly drug estimate. If you already have other health or drug coverage, talk to that benefits office before you change. A star rating on the federal tool is the plan's rating, not a promise about your doctors. We do not copy star ratings or premiums onto this site. The steps for reading a plan without a sales pitch are on [[/guides/how-to-compare-plans/|how to compare plans]].</p>
+<p>People with Medicaid or [[/guides/extra-help/|Extra Help]] may be able to change drug coverage once a month, which is a different rule from this fall window. SHIP counselors are busiest now. The national line on shiphelp.org is 1-877-839-2675. Your [[/states/|state page]] has the local program. We do not ask for a Medicare number.</p>
 """,
 faqs=[
-("When does a plan I join in the fall start?", "January 1, if the plan gets your request by December 7."),
+("When does a plan I join in the fall start?", "January 1, if the plan gets your request by December 7. Medicare.gov's joining a plan page, read 21 Nov 2026, still says that."),
 ("Can I use this window to sign up for Part B for the first time?", "No. This window changes Advantage and drug coverage. Part B signup uses the Initial Enrollment Period, a special enrollment period, or the General Enrollment Period from January 1 through March 31."),
-("Is this the same as Medigap open enrollment?", "No. Medigap open enrollment is a one time 6 month period that starts when you are 65 or older and you have Part B."),
+("Does leaving an Advantage plan in the fall guarantee a Medigap policy?", "No. Medigap open enrollment is a one time 6 month period. A guaranteed issue right is a listed situation, such as a plan leaving Medicare, not the October calendar by itself."),
 ],
 sources=[
 ("Joining a plan", "https://www.medicare.gov/basics/get-started-with-medicare/get-more-coverage/joining-a-plan"),
+("When can I buy a Medigap policy?", "https://www.medicare.gov/health-drug-plans/medigap/ready-to-buy/when"),
 ("SHIP Help, find your SHIP", "https://www.shiphelp.org/what-we-do/"),
-("Help with drug costs, Medicare phone", "https://www.medicare.gov/basics/costs/help/drug-costs"),
 ],
-related=[("/guides/medicare-advantage-open-enrollment/", "January Advantage window"), ("/guides/how-to-compare-plans/", "How to compare"), ("/states/", "State SHIP contacts")],
+related=[("/guides/medicare-advantage-open-enrollment/", "January Advantage window"), ("/guides/how-to-compare-plans/", "How to compare"), ("/guides/medigap-guaranteed-issue-rights/", "When Medigap must be sold"), ("/states/", "State SHIP contacts")],
+next_reads=[
+("/guides/how-to-compare-plans/", "How to read Plan Finder without a sales pitch", "/assets/images/calculator-tax-forms-thumb.png", "Calculator, pen and paperwork on a kitchen table"),
+("/guides/medicare-advantage-open-enrollment/", "The January switch for people already in Advantage", "/assets/images/household-finances-paperwork-thumb.png", "Hands reviewing financial paperwork with a pen and coffee mug"),
+("/guides/medigap-guaranteed-issue-rights/", "When a Medigap company must sell you a policy", "/assets/images/household-finances-paperwork-thumb.png", "Hands reviewing financial paperwork with a pen and coffee mug"),
+("/guides/initial-enrollment-period/", "The 7 month window around age 65", "/assets/images/household-finances-paperwork-thumb.png", "Hands reviewing financial paperwork with a pen and coffee mug"),
+],
 )
 
 add(
 path="/guides/medicare-advantage-open-enrollment/",
-title="Medicare Advantage Open Enrollment | Which Senior Plan",
+title="Advantage Switch Window: Jan 1 to Mar 31",
 h1="Medicare Advantage open enrollment",
-desc="From January 1 through March 31, people already in Medicare Advantage can switch plans or return to Original Medicare and join a drug plan.",
+desc="January 1 through March 31 lets people already in Medicare Advantage switch plans or return to Original Medicare.",
+modified="2026-11-21",
+checked="21 Nov 2026",
+image="/assets/images/household-finances-paperwork.png",
+image_alt="Hands reviewing financial paperwork with a pen and coffee mug",
+image_caption="Thumbnail for the January through March Advantage switch window.",
+compare_html='<aside class="compare" aria-label="Check another January rule"><p><strong>Same months, different door.</strong> January 1 to March 31 is also the [[/guides/general-enrollment-and-penalties/|General Enrollment Period]] for people who missed Part B. This page is only for people already in an Advantage plan. A Medigap trial right, if you have one, is on [[/guides/medigap-guaranteed-issue-rights/|guaranteed issue rights]], and it is not "any day in the first quarter."</p></aside>',
 body="""
-<div class="answer"><p><strong>Short version:</strong> January 1 through March 31 is the Medicare Advantage open enrollment period. It is only for people already in a Medicare Advantage plan. You can switch to another Advantage plan, or drop it, return to Original Medicare, and join a drug plan. Coverage starts the first of the month after the plan gets your request.</p></div>
-<p>Medicare.gov also says this kind of change is available within the first 3 months you have Medicare, if you are in an Advantage plan. It is not a window for someone who has only Original Medicare to join an Advantage plan. That change waits for the next fall open enrollment, unless a special enrollment period applies.</p>
-<p>The same calendar dates, January 1 through March 31, are also the General Enrollment Period for Part A and Part B. That is a different rule for a different problem: people who missed their first Part B signup. Do not mix the two. One changes an Advantage plan you already have. The other signs you up for Part B, possibly with a penalty. Both are explained side by side on the [[/guides/enrollment-periods/|enrollment overview]].</p>
-<p>If you drop an Advantage plan and return to Original Medicare, ask whether you have a right to buy a Medigap policy. That right is not automatic every winter. See [[/guides/medigap-open-enrollment/|Medigap open enrollment and guaranteed issue rights]].</p>
+<div class="answer"><p><strong>Short version:</strong> January 1 through March 31 is the Medicare Advantage open enrollment period. Medicare.gov's joining a plan page, read 21 Nov 2026, limits it to people already in a Medicare Advantage plan. You can switch to another Advantage plan, with or without drug coverage, or drop the plan, return to Original Medicare, and join a separate drug plan. Coverage starts the first of the month after the plan gets the request.</p></div>
+<p>The same page also gives this kind of change during the first 3 months you have Medicare, if you are already in an Advantage plan. Someone who joined an Advantage plan during the Initial Enrollment Period can change to another Advantage plan, or go back to Original Medicare with or without a drug plan, within the first 3 months they have both Part A and Part B. It is not a window for someone who has only Original Medicare to join a first Advantage plan. That change waits for [[/guides/open-enrollment/|October 15 to December 7]], unless a special enrollment period applies.</p>
+<p>The same calendar dates are also the General Enrollment Period for Part A and Part B. That is a different rule for a different problem: people who missed their first Part B signup. One changes an Advantage plan you already have. The other signs you up for Part B, possibly with a penalty. Both sit side by side on the [[/guides/enrollment-periods/|enrollment overview]].</p>
+<!--NEXT_READS-->
+<h2>Leaving the plan does not, by itself, open every Medigap letter</h2>
+<p>If you drop an Advantage plan and return to Original Medicare, a Medigap company does not have to sell you a policy just because the calendar says January. The [[/guides/medigap-open-enrollment/|6 month Medigap window]] is one time, tied to Part B and age 65 or older. Outside it, the March 2026 Choosing a Medigap Policy guide describes trial rights that are easy to mix up with this quarter.</p>
+<p>One trial right is for people who joined a Medicare Advantage plan or [[/guides/pace-program/|PACE]] when they were first eligible for Part A at 65, and who decide within the first year to switch to Original Medicare. The guide says they can buy any Medigap policy the company sells in the state. The application window in the guide is 60 days before coverage ends, or no more than 63 days after, not "any day from January 1 to March 31." The guide also says the right may last an extra 12 months in certain circumstances and tells you to ask the state insurance department. It does not list those circumstances.</p>
+<p>The other trial right is for someone who dropped a Medigap policy to join Medicare Advantage, or to switch to a Medicare SELECT policy, for the first time, has been in that plan less than a year, and wants the old policy back. The guide says you can get that policy if the same company still sells it. If it does not, the right is to Plans A, B, C, D, F, or G, with the same 60 and 63 day timing. Plans C and F are closed to people new to Medicare on or after January 1, 2020. The full table, including the places where the live Medicare.gov tool adds Plans K and L, is on the [[/guides/medigap-guaranteed-issue-rights/|guaranteed issue]] page. This site does not tell you to drop a plan in order to chase one of those rights.</p>
 """,
 faqs=[
-("Can I join my first Advantage plan in February?", "Not under this window, unless you already have an Advantage plan or you are in your first 3 months of Medicare and already in a plan, or you have a separate special enrollment period."),
-("How fast does a January switch start?", "Medicare.gov says coverage starts the first of the month after the plan gets your request."),
-("Is January 1 to March 31 also for Part B?", "The dates match the General Enrollment Period, but that period is for signing up for Part B or premium Part A. It is a different use of the same months."),
+("Can I join my first Advantage plan in February?", "Not under this window, unless you already have an Advantage plan, or you are in your first 3 months of Medicare and already in a plan, or you have a separate special enrollment period."),
+("How fast does a January switch start?", "Medicare.gov, read 21 Nov 2026, says coverage starts the first of the month after the plan gets your request."),
+("Does this quarter guarantee a Medigap policy?", "No. The dates match a plan switch for people already in Medicare Advantage. A Medigap trial right is a separate rule in the March 2026 CMS guide, usually a 63 day clock, and it does not apply to every person who leaves a plan in the winter."),
 ],
 sources=[
 ("Joining a plan", "https://www.medicare.gov/basics/get-started-with-medicare/get-more-coverage/joining-a-plan"),
 ("When does Medicare coverage start?", "https://www.medicare.gov/basics/get-started-with-medicare/sign-up/when-does-medicare-coverage-start"),
+("Choosing a Medigap Policy, CMS product 02110, March 2026", "https://www.medicare.gov/publications/02110-choosing-a-medigap-policy.pdf"),
 ],
-related=[("/guides/open-enrollment/", "Fall open enrollment"), ("/guides/general-enrollment-and-penalties/", "General enrollment"), ("/guides/medicare-advantage/", "What Advantage is")],
+related=[("/guides/open-enrollment/", "Fall open enrollment"), ("/guides/general-enrollment-and-penalties/", "General enrollment"), ("/guides/medigap-guaranteed-issue-rights/", "Medigap trial rights"), ("/guides/medicare-advantage/", "What Advantage is")],
+next_reads=[
+("/guides/open-enrollment/", "Fall open enrollment, October 15 to December 7", "/assets/images/household-finances-paperwork-thumb.png", "Hands reviewing financial paperwork with a pen and coffee mug"),
+("/guides/medigap-guaranteed-issue-rights/", "The trial rights that are not this calendar", "/assets/images/calculator-tax-forms-thumb.png", "Calculator, pen and paperwork on a kitchen table"),
+("/guides/general-enrollment-and-penalties/", "The other use of January 1 to March 31", "/assets/images/piggy-bank-rain-thumb.png", "Pink ceramic piggy bank and coins on a rainy windowsill"),
+("/guides/medicare-advantage/", "What a Medicare Advantage plan actually is", "/assets/images/retirement-tea-papers-thumb.png", "Older hands resting on a mug beside printed charts and papers on a wooden table"),
+],
 )
 
 add(
@@ -501,31 +565,53 @@ related=[("/guides/what-medicare-covers/", "What it covers"), ("/guides/medicare
 
 add(
 path="/guides/medicare-savings-programs/",
-title="Medicare Savings Programs in 2026 | Which Senior Plan",
-h1="Medicare Savings Programs",
-desc="2026 income and resource limits for QMB, SLMB, QI, and QDWI. Your state Medicaid agency takes the application and may use higher limits.",
+title="2026 Medicare Savings Program Income Limits",
+h1="Medicare Savings Program income limits in 2026",
+desc="2026 monthly limits from Medicare.gov: QMB $1,350, SLMB $1,616, and QI $1,816 for one person. Your state may go higher.",
+modified="2026-11-21",
+checked="21 Nov 2026",
+image="/assets/images/calculator-tax-forms.png",
+image_alt="Calculator, pen and paperwork on a kitchen table",
+image_caption="Thumbnail for the 2026 Medicare Savings Program income limits.",
+compare_html='<aside class="compare" aria-label="Check another income rule"><p><strong>These limits are not Extra Help, and they are not IRMAA.</strong> [[/guides/extra-help/|Extra Help]] is the drug program. A savings program that pays the Part B premium can bring Extra Help with it. People above these incomes have the opposite problem: the [[/guides/irmaa-brackets-2027/|2027 IRMAA brackets]] add to the Part B premium instead of paying it. The premium itself is on the [[/guides/medicare-costs-2026/|2026 costs]] page.</p></aside>',
 body="""
-<div class="answer"><p><strong>Short version:</strong> Medicare Savings Programs help pay Medicare premiums and, for one program, deductibles and coinsurance. Your state runs them. The 2026 federal limits are below. Alaska and Hawaii use slightly higher income limits, and many states let people qualify with more income or resources than this table.</p></div>
-<div class="tablewrap"><table class="list"><thead><tr><th scope="col">Program</th><th scope="col">What it helps pay</th><th scope="col">Monthly income, single / couple</th><th scope="col">Resources, single / couple</th></tr></thead><tbody>
-<tr><th scope="row">QMB</th><td>Part A and Part B premiums, and deductibles, coinsurance, and copays for Medicare covered services</td><td>$1,350 / $1,824</td><td>$9,950 / $14,910</td></tr>
-<tr><th scope="row">SLMB</th><td>Part B premium. You need Part A and Part B</td><td>$1,616 / $2,184</td><td>$9,950 / $14,910</td></tr>
-<tr><th scope="row">QI</th><td>Part B premium. You need Part A and Part B. You apply every year</td><td>$1,816 / $2,455</td><td>$9,950 / $14,910</td></tr>
+<div class="answer"><p><strong>Short version:</strong> Medicare.gov, read 21 Nov 2026, still labels the Medicare Savings Program income and resource table as 2026. For one person the monthly income limits are $1,350 for QMB, $1,616 for SLMB, and $1,816 for QI. A couple is $1,824, $2,184, and $2,455. Resource limits for those three are $9,950 and $14,910. This page does not print 2027 limits. Medicare.gov has not put a 2027 table on that page.</p></div>
+<p>The programs help pay Medicare costs. They do not replace Medicare. Your state Medicaid agency takes the application and decides which program fits. Each [[/states/|state page]] names the agency and the phone numbers from the Medicaid.gov directory. Apply there even if the numbers below look too low for your household.</p>
+<div class="tablewrap"><table class="list"><thead><tr><th scope="col">Program</th><th scope="col">What Medicare.gov says it pays</th><th scope="col">2026 monthly income, one person / couple</th><th scope="col">2026 resources, one person / couple</th></tr></thead><tbody>
+<tr><th scope="row">QMB</th><td>Part A premium if you pay one, the Part B premium, and deductibles, coinsurance, and copays for services Medicare covers</td><td>$1,350 / $1,824</td><td>$9,950 / $14,910</td></tr>
+<tr><th scope="row">SLMB</th><td>Part B premium only. You need both Part A and Part B</td><td>$1,616 / $2,184</td><td>$9,950 / $14,910</td></tr>
+<tr><th scope="row">QI</th><td>Part B premium only. You need both Part A and Part B, and you apply every year</td><td>$1,816 / $2,455</td><td>$9,950 / $14,910</td></tr>
 <tr><th scope="row">QDWI</th><td>Part A premium only, for some working people with a disability who lost premium free Part A</td><td>$5,405 / $7,299</td><td>$4,000 / $6,000</td></tr>
 </tbody></table></div>
-<p>If you qualify for QMB, SLMB, or QI, you also get [[/guides/extra-help/|Extra Help]] with drug costs. Medicare.gov says you will pay no more than $12.65 in 2026 for each drug your plan covers. QMB also means Medicare providers are not allowed to bill you for Medicare covered services, including deductibles and coinsurance. A small Medicaid copay can still apply.</p>
-<p>QI has extra rules. You must apply every year. States approve applications first come, first served, with priority for people who had QI the year before. QI is only for people who do not qualify for other Medicaid coverage.</p>
-<p>Apply through the state Medicaid agency, even if you think you are over the federal limits. Each [[/states/|state page]] names the agency Medicaid.gov lists and the phone numbers on that directory. Limits can change, and this table is the 2026 federal set.</p>
+<p>The asterisk on every income cell of that Medicare.gov table says the income limits are slightly higher in Alaska and Hawaii. The higher dollar amounts are not in the table. This page does not invent them. The same footnote says you may qualify in other states even if income or resources are higher than these federal limits, because some states do not count certain types or amounts of income or resources. Ask the state. Do not treat a number a few dollars over the line as a no.</p>
+<!--NEXT_READS-->
+<h2>What each program pays, and what it does not</h2>
+<p>QMB is the wide one. It can pay the Part A premium if you do not have premium free Part A, the Part B premium, and the deductibles, coinsurance, and copays for services and items Medicare covers. Medicare.gov says providers are not allowed to bill a QMB enrollee for those Medicare covered services. A small Medicaid copay can still show up. Show the Medicare card and the Medicaid or QMB card at each visit. If you have Original Medicare, a Medicare Summary Notice can also show that you are in QMB.</p>
+<p>SLMB and QI pay the Part B premium only. They do not, on Medicare.gov's description, pay the Part A premium or the doctor bills QMB stops. Both require Part A and Part B. The standard 2026 Part B premium those programs can cover is $202.90 a month, on the [[/guides/medicare-costs-2026/|2026 costs]] page. The program pays that premium. It is not a check for some other amount, and it is not the [[/guides/medicare-give-back-benefit/|Part B give back]] some Advantage plans advertise.</p>
+<p>QI has three extra rules, all on the same Medicare.gov page. You apply every year to stay in it. States approve applications first come, first served, and people who had QI the year before get priority. QI is only for people who do not qualify for other Medicaid coverage. You might still qualify for a different savings program if QI is closed.</p>
+<p>QDWI is the odd row. The income limits are much higher and the resource limits are much lower: $4,000 for one person and $6,000 for a couple, not the $9,950 and $14,910 used for QMB, SLMB, and QI. Medicare.gov limits it to people who have a disability, are working, and lost Social Security disability benefits and premium free Part A because they returned to work. It pays the Part A premium only. The 2026 Part A premiums, $311 or $565 depending on work quarters, are on the costs page. QDWI's section on the savings program page does not say it includes Extra Help. The QMB, SLMB, and QI sections do.</p>
+<h2>Extra Help comes with three of the four</h2>
+<p>If you qualify for QMB, SLMB, or QI, Medicare.gov says you also get [[/guides/extra-help/|Extra Help]] with drug costs, and that you pay no more than $12.65 in 2026 for each drug the plan covers. That $12.65 line is a 2026 sentence on the savings program page. It is not the 2027 Extra Help copay schedule, which the Extra Help page keeps separate because Medicare.gov put those copays under a 2027 heading.</p>
+<p>Full Medicaid is broader than these four programs. Someone can have both Medicare and Medicaid without being in QMB. The difference is on the [[/guides/medicare-and-medicaid/|Medicare and Medicaid]] page. A [[/guides/ship-counseling/|SHIP counselor]] can sit with the application. This site has no form and does not send your name to an agency.</p>
 """,
 faqs=[
-("Do these programs replace Medicare?", "No. They help pay Medicare costs. You still have Medicare. The state decides which program you qualify for."),
-("What if my income is a little over the table?", "Apply anyway. Medicare.gov says you may qualify in your state even if income or resources are higher than the federal limits, and that Alaska and Hawaii use slightly higher income limits."),
-("Does QMB stop doctor bills?", "For services and items Medicare covers, Medicare.gov says providers are not allowed to bill a QMB enrollee for the deductible, coinsurance, or copay. Show both cards."),
+("Are the Medicare Savings Program limits still the 2026 numbers?", "Yes, on the Medicare.gov page read 21 Nov 2026. The income and resource tables are labeled 2026. This page does not guess a 2027 table."),
+("What if my income is a little over the table?", "Apply anyway. Medicare.gov says Alaska and Hawaii use slightly higher income limits, and that you may qualify in your state even if income or resources are higher than the federal figures, because some income and resources are not counted."),
+("Does QMB stop doctor bills?", "For services and items Medicare covers, Medicare.gov says providers are not allowed to bill a QMB enrollee for the deductible, coinsurance, or copay. A small Medicaid copay can still apply. Show both cards."),
 ],
 sources=[
 ("Medicare Savings Programs", "https://www.medicare.gov/basics/costs/help/medicare-savings-programs"),
+("What does Medicare cost? (2026 Part B premium)", "https://www.medicare.gov/basics/get-started-with-medicare/medicare-basics/what-does-medicare-cost"),
+("2026 Medicare Parts A and B premiums and deductibles", "https://www.cms.gov/newsroom/fact-sheets/2026-medicare-parts-b-premiums-deductibles"),
 ("Where can people get help with Medicaid and CHIP?", "https://www.medicaid.gov/about-us/where-can-people-get-help-medicaid-chip"),
 ],
-related=[("/guides/extra-help/", "Extra Help"), ("/guides/medicare-and-medicaid/", "Medicare and Medicaid"), ("/states/", "State Medicaid contacts")],
+related=[("/guides/extra-help/", "Extra Help"), ("/guides/medicare-and-medicaid/", "Medicare and Medicaid"), ("/guides/medicare-costs-2026/", "2026 premiums"), ("/states/", "State Medicaid contacts")],
+next_reads=[
+("/guides/extra-help/", "Extra Help drug limits that can come with these programs", "/assets/images/calculator-tax-forms-thumb.png", "Calculator, pen and paperwork on a kitchen table"),
+("/guides/medicare-and-medicaid/", "How full Medicaid differs from a savings program", "/assets/images/household-finances-paperwork-thumb.png", "Hands reviewing financial paperwork with a pen and coffee mug"),
+("/guides/ship-counseling/", "Free help with the state application", "/assets/images/household-finances-paperwork-thumb.png", "Hands reviewing financial paperwork with a pen and coffee mug"),
+("/guides/medicare-costs-2026/", "The 2026 Part B premium these programs can pay", "/assets/images/retirement-tea-papers-thumb.png", "Older hands resting on a mug beside printed charts and papers on a wooden table"),
+],
 )
 
 add(
@@ -607,87 +693,135 @@ related=[("/states/", "Find your state"), ("/guides/how-to-compare-plans/", "How
 
 add(
 path="/guides/medicare-and-medicaid/",
-title="Medicare and Medicaid Together | Which Senior Plan",
+title="Yes, You Can Have Medicare and Medicaid",
 h1="Medicare and Medicaid together",
-desc="Medicare is federal. Medicaid is run by your state. You can have both. Medicare Savings Programs are one kind of help, not the whole of Medicaid.",
-modified="2026-11-18",
-checked="18 Nov 2026",
+desc="Medicare is federal and Medicaid is run by the state. You can have both. A savings program is narrower than full Medicaid.",
+modified="2026-11-21",
+checked="21 Nov 2026",
+image="/assets/images/calculator-tax-forms.png",
+image_alt="Calculator, pen and paperwork on a kitchen table",
+image_caption="Thumbnail for the Medicare and Medicaid guide.",
+compare_html='<aside class="compare" aria-label="Check another kind of help"><p><strong>Full Medicaid is not the income table.</strong> The federal 2026 limits for QMB, SLMB, and QI are on the [[/guides/medicare-savings-programs/|savings program]] page. Extra Help drug copays are on the [[/guides/extra-help/|Extra Help]] page. Losing Medicaid can open a [[/guides/special-enrollment-periods/|special enrollment period]] that those pages do not describe.</p></aside>',
 body="""
-<div class="answer"><p><strong>Short version:</strong> Medicare is federal health insurance for people 65 and older and for some younger people with disabilities. Medicaid is a joint federal and state program. If you qualify, you can have both. The state decides Medicaid eligibility.</p></div>
-<p>Having both is often called being dual eligible. Full Medicaid can cover services Medicare does not, and it can lead to [[/guides/extra-help/|Extra Help]] with drugs. A [[/guides/medicare-savings-programs/|Medicare Savings Program]] is narrower. QMB, SLMB, QI, and QDWI help with Medicare premiums and, in the case of QMB, Medicare cost sharing. They are not the same thing as full Medicaid, even though the state Medicaid agency usually takes the application. Someone who has both programs and needs a nursing home level of care may also be able to join [[/guides/pace-program/|PACE]], a program that combines Medicare and Medicaid services into one coordinated team in some areas.</p>
-<p>Medicaid.gov publishes a directory of state agencies, phones, and websites. Each [[/states/|state page]] repeats the agency name, the member phone numbers, and the link from that directory, checked 16 Nov 2026. We do not invent a state's income limit for full Medicaid. Those rules are broader than the federal Medicare Savings Program table and they differ by state.</p>
-<p>If you lose Medicaid, you may get a special chance to sign up for Medicare or change a plan. The timing Medicare.gov describes is on the [[/guides/special-enrollment-periods/|special enrollment]] page. People who have Medicaid or Extra Help may also change drug coverage once a month.</p>
+<div class="answer"><p><strong>Short version:</strong> Medicare is federal health insurance for people 65 and older and for some younger people with disabilities. Medicaid is a joint federal and state program. Medicare.gov says that if you qualify, you can have both. The state decides Medicaid eligibility. This page does not print a state's full Medicaid income limit, because those rules are not one national table.</p></div>
+<p>Having both is often called being dual eligible. Full Medicaid can cover services Medicare does not, and it can lead to [[/guides/extra-help/|Extra Help]] with drugs. A [[/guides/medicare-savings-programs/|Medicare Savings Program]] is narrower. QMB, SLMB, QI, and QDWI help with Medicare premiums and, for QMB, Medicare cost sharing. Medicare.gov, read 21 Nov 2026, still labels those income limits as 2026: $1,350, $1,616, and $1,816 a month for one person. They are not the same thing as full Medicaid, even though the state Medicaid agency usually takes the application.</p>
+<p>Someone who has both programs and needs a nursing home level of care may also be able to join [[/guides/pace-program/|PACE]] in areas that offer it. The March 2026 Choosing a Medigap Policy guide describes PACE as medical, social, and long term care, plus drug coverage, for older adults who need nursing home services and can still live in the community. It is an optional Medicaid benefit, so it is not in every state.</p>
+<!--NEXT_READS-->
+<h2>Medigap is usually the wrong assumption</h2>
+<p>Two official sentences, read together, are easy to miss. The March 2026 guide says it is illegal for someone to sell you a Medigap policy if they know you have Medicaid, except in limited situations. The guide names the exception and does not list the situations. The Medicare.gov "When can I buy a Medigap policy?" tool, read 21 Nov 2026, says insurance companies generally cannot sell you a Medigap policy if you have Medicaid, even if you have both Medicare and Medicaid. We are not filling in the "limited situations" the guide left unnamed. A [[/guides/ship-counseling/|SHIP counselor]] or the state Medicaid office is the place to ask whether a supplement can be sold in your case. Do not assume a Medigap letter is available because you have Original Medicare.</p>
+<p>The premium help that is designed for this overlap is the savings program, especially QMB, which Medicare.gov says stops providers from billing you for Medicare covered deductibles, coinsurance, and copays. That is a different mechanism from buying a private letter.</p>
+<h2>Where the state facts are, and where they are not</h2>
+<p>Medicaid.gov publishes a directory of state agencies, phones, and websites. Each [[/states/|state page]] repeats the agency name, the member phone numbers, and the link from that directory, checked 16 Nov 2026. If a line has changed, the directory controls. We still do not invent a state's income limit for full Medicaid.</p>
+<p>If you lose Medicaid, Medicare.gov lists a special chance to sign up for Part B. On the coverage start page read 21 Nov 2026, a loss on or after January 1, 2023 opens a period that ends 6 months after Medicaid ends, using form CMS-10797. Coverage can begin the month after you sign up, or the date Medicaid ends, whichever you choose. The rest of that table is on the [[/guides/special-enrollment-periods/|special enrollment]] page. People who have Medicaid or Extra Help may also change drug coverage once a month. Most other people cannot.</p>
 """,
 faqs=[
-("Can I have Medicare and Medicaid at the same time?", "Yes. Medicare.gov says that if you qualify, you can have both."),
-("Is a Medicare Savings Program the same as Medicaid?", "It is run through the state and it can come with Extra Help, but QMB, SLMB, QI, and QDWI are specific programs that help with Medicare costs. Full Medicaid is broader and uses state rules."),
-("Where do I apply?", "At the state Medicaid agency. Start with your state page for the phone and website Medicaid.gov lists, then confirm on that site."),
+("Can I have Medicare and Medicaid at the same time?", "Yes. Medicare.gov says that if you qualify, you can have both. The state decides the Medicaid side."),
+("Is a Medicare Savings Program the same as Medicaid?", "It is run through the state and QMB, SLMB, or QI can come with Extra Help, but those four programs help with Medicare costs. Full Medicaid is broader and uses state rules this site does not invent."),
+("Can someone with Medicaid buy a Medigap policy?", "The March 2026 CMS guide says a sale is illegal if the seller knows you have Medicaid, except in limited situations it does not list. The Medicare.gov tool read 21 Nov 2026 says companies generally cannot sell Medigap to someone with Medicaid. Ask SHIP or the state before you assume a policy is available."),
 ],
 sources=[
 ("Parts of Medicare", "https://www.medicare.gov/basics/get-started-with-medicare/medicare-basics/parts-of-medicare"),
 ("Medicare Savings Programs", "https://www.medicare.gov/basics/costs/help/medicare-savings-programs"),
+("When can I buy a Medigap policy?", "https://www.medicare.gov/health-drug-plans/medigap/ready-to-buy/when"),
+("Choosing a Medigap Policy, CMS product 02110, March 2026", "https://www.medicare.gov/publications/02110-choosing-a-medigap-policy.pdf"),
+("When does Medicare coverage start?", "https://www.medicare.gov/basics/get-started-with-medicare/sign-up/when-does-medicare-coverage-start"),
 ("Where can people get help with Medicaid and CHIP?", "https://www.medicaid.gov/about-us/where-can-people-get-help-medicaid-chip"),
 ],
-related=[("/states/", "State Medicaid agencies"), ("/guides/medicare-savings-programs/", "Savings programs"), ("/guides/extra-help/", "Extra Help")],
+related=[("/states/", "State Medicaid agencies"), ("/guides/medicare-savings-programs/", "2026 savings program limits"), ("/guides/extra-help/", "Extra Help"), ("/guides/special-enrollment-periods/", "If Medicaid ends")],
+next_reads=[
+("/guides/medicare-savings-programs/", "2026 QMB, SLMB, and QI income limits", "/assets/images/calculator-tax-forms-thumb.png", "Calculator, pen and paperwork on a kitchen table"),
+("/guides/extra-help/", "Extra Help with drug costs", "/assets/images/calculator-tax-forms-thumb.png", "Calculator, pen and paperwork on a kitchen table"),
+("/guides/pace-program/", "PACE, where Medicare and Medicaid are one team", "/assets/images/household-finances-paperwork-thumb.png", "Hands reviewing financial paperwork with a pen and coffee mug"),
+("/guides/special-enrollment-periods/", "The 6 month window after Medicaid ends", "/assets/images/household-finances-paperwork-thumb.png", "Hands reviewing financial paperwork with a pen and coffee mug"),
+],
 )
 
 add(
 path="/guides/how-to-compare-plans/",
-title="Which Medicare Plan Should I Compare?",
+title="Compare Medicare Plans on Medicare.gov",
 h1="How to compare plans without a sales pitch",
-desc="Use Medicare.gov Plan Finder or a free SHIP counselor. We do not list plan names, star ratings, or premiums, and we do not collect leads.",
+desc="Medicare.gov Plan Finder shows local premiums and drug costs. This site does not rank plans or collect your phone number.",
+modified="2026-11-21",
+checked="21 Nov 2026",
+image="/assets/images/calculator-tax-forms.png",
+image_alt="Calculator, pen and paperwork on a kitchen table",
+image_caption="Thumbnail for the plan comparison guide.",
+compare_html='<aside class="compare" aria-label="Check another comparison"><p><strong>Advantage plans and Medigap letters are not the same kind of comparison.</strong> A letter chart is on [[/guides/medigap-plan-letters/|Medigap letters]]: the same letter has the same basic benefits. An Advantage plan is a local contract. The deadline you are in is on [[/guides/enrollment-periods/|enrollment periods]]. Help with the premium is on the [[/guides/medicare-savings-programs/|2026 savings program limits]].</p></aside>',
 body="""
-<div class="answer"><p><strong>Short version:</strong> Compare plans on Medicare.gov or with your state SHIP program. Have your drug list, your doctors, and the enrollment window you are in. This website will not rank plans or ask for your phone number.</p></div>
-<h2>Use the federal tool</h2>
-<p>Medicare.gov runs the plan comparison tool at medicare.gov/plan-compare. It asks where you live because Advantage and drug plans are local. It can show premiums, deductibles, drug costs, and star ratings that we are not copying onto these pages. Those figures change. A copied list would go stale, and a made up list would be worse.</p>
-<h2>Or sit with a counselor</h2>
-<p>[[/guides/ship-counseling/|SHIP counseling]] is free and local. The counselor does not work for an insurance company. The national line is 1-877-839-2675, and every state page has the local number from shiphelp.org. That is the right place for "which plan should I pick," which this site will not answer.</p>
-<h2>What to have ready</h2>
-<ul>
-<li>Your ZIP code and whether you have Medicaid or Extra Help</li>
-<li>The prescriptions you take, and the dose</li>
-<li>The doctors and hospitals you want to keep</li>
-<li>Which enrollment period you are actually in</li>
-</ul>
-<p>Then separate the decision into the path (Original Medicare plus Part D, with or without Medigap, or Medicare Advantage) and the specific contract. The [[/guides/original-medicare-vs-medicare-advantage/|comparison page]] is only the first split. A star rating is not a promise about your drugs or your doctors.</p>
+<div class="answer"><p><strong>Short version:</strong> Compare Medicare Advantage and drug plans on Medicare.gov, or with a SHIP counselor. The joining a plan page, read 21 Nov 2026, says to add your drugs, ask whether your doctors are in network, and read the premium, deductible, and yearly drug estimate. This website will not rank a company or ask for your phone number.</p></div>
+<h2>Start with the path, then the contract</h2>
+<p>The first split is still [[/guides/original-medicare-vs-medicare-advantage/|Original Medicare or Medicare Advantage]]. Original Medicare plus a separate drug plan, with or without a Medigap policy, is one path. An Advantage plan that delivers Part A and Part B, usually with drugs, is the other. You use one path at a time. A Medigap letter does not sit inside an Advantage plan. The March 2026 Choosing a Medigap Policy guide says the premium is the only difference between policies with the same letter sold by different companies, and it tells shoppers to compare the same letter with the same letter. That sentence is about Medigap. It is not true of Advantage plans, which are not standardized by letter.</p>
+<p>Federal dollar amounts that do not depend on a private contract are already on this site, with the year attached. The [[/guides/medicare-costs-2026/|2026 costs]] page and the [[/guides/medicare-costs-2027/|2027 costs]] page are those baselines. A plan premium on Medicare.gov is a different number. We do not copy it, because it changes by county and by year, and a copied list would go stale.</p>
+<!--NEXT_READS-->
+<h2>What the federal tool asks you to check</h2>
+<p>Medicare.gov runs the comparison at medicare.gov/plan-compare. It asks where you live because Advantage and drug plans are local. The joining a plan page, read 21 Nov 2026, tells you to add every prescription you take regularly so the monthly and yearly estimate is about your drugs, not a generic basket. It also says to ask your doctors and pharmacies if they are in the plan's network, to review premiums, deductibles, and the drug estimate, and to talk to any other insurer before you change. If you live in another state for part of the year, check whether the plan covers you there. A star rating on that tool is Medicare's rating of the plan. It is not a promise about your prescriptions. We do not reprint star ratings.</p>
+<p>You generally need Part A and Part B to join an Advantage plan, and either part to join a standalone drug plan. You have to live in the service area, and you need the Medicare number and the Part A and Part B start dates from the card. Once you have chosen, Medicare.gov lists three ways to join: select Enroll on plan-compare, contact the plan, or call 1-800-MEDICARE at 1-800-633-4227 (TTY 1-877-486-2048). The plan has to get a paper request before the enrollment period ends. Which period you are in is not optional. Fall open enrollment, the January Advantage window, and a special situation do different jobs. Read [[/guides/enrollment-periods/|the deadlines]] before you treat a tool result as something you can buy today.</p>
+<h2>Medigap prices are a different search</h2>
+<p>Plan Finder is for Advantage and drug plans. Medigap prices are not a letter chart. The [[/guides/medigap-plan-letters/|letters page]] shows what each letter covers in 2026. Whether a company must sell you that letter is [[/guides/medigap-open-enrollment/|the 6 month window]] or a [[/guides/medigap-guaranteed-issue-rights/|guaranteed issue right]]. The March 2026 guide tells shoppers to ask the company how it sets the price, community, issue age, or attained age, and whether the premium rose in the last 3 years. Those answers are company specific. A [[/guides/ship-counseling/|SHIP counselor]] can use a state rate guide if the state publishes one. The national SHIP line on shiphelp.org is 1-877-839-2675. Counselors are not connected to an insurance company. That is the place for "which plan should I pick." This site will not answer it.</p>
 <p>Do not send your Medicare number, Social Security number, or bank details through this site. We have no quote form. Anyone who calls you because you "requested Medicare quotes" did not get your name from us.</p>
 """,
 faqs=[
 ("Why are there no plan names on this site?", "Plan names, premiums, and formularies change, and listing them would look like a recommendation. Medicare.gov and SHIP are the places that can show current plans."),
-("Can I compare Medigap here?", "You can compare what each letter covers on our Medigap page. Prices are not listed. Your state insurance department and SHIP can show policies sold to you."),
+("Can I compare Medigap here?", "You can compare what each letter covers on the letters page. The March 2026 CMS guide says the price is the only difference between the same letter at different companies. Those prices are not listed here."),
 ("Is the Plan Finder a government site?", "Yes. medicare.gov/plan-compare is on the federal Medicare site. Which Senior Plan is not that site and is not endorsed by it."),
 ],
 sources=[
 ("Medicare Plan Finder", "https://www.medicare.gov/plan-compare/"),
 ("Joining a plan", "https://www.medicare.gov/basics/get-started-with-medicare/get-more-coverage/joining-a-plan"),
+("Choosing a Medigap Policy, CMS product 02110, March 2026", "https://www.medicare.gov/publications/02110-choosing-a-medigap-policy.pdf"),
 ("SHIP Help", "https://www.shiphelp.org/what-we-do/"),
 ],
-related=[("/guides/ship-counseling/", "SHIP counseling"), ("/guides/original-medicare-vs-medicare-advantage/", "The two paths"), ("/states/", "Your state")],
+related=[("/guides/ship-counseling/", "SHIP counseling"), ("/guides/original-medicare-vs-medicare-advantage/", "The two paths"), ("/guides/enrollment-periods/", "Which deadline you are in"), ("/states/", "Your state")],
+next_reads=[
+("/guides/original-medicare-vs-medicare-advantage/", "The first split, before any plan name", "/assets/images/retirement-tea-papers-thumb.png", "Older hands resting on a mug beside printed charts and papers on a wooden table"),
+("/guides/medigap-plan-letters/", "What each Medigap letter covers in 2026", "/assets/images/retirement-tea-papers-thumb.png", "Older hands resting on a mug beside printed charts and papers on a wooden table"),
+("/guides/enrollment-periods/", "Which enrollment window you are actually in", "/assets/images/household-finances-paperwork-thumb.png", "Hands reviewing financial paperwork with a pen and coffee mug"),
+("/guides/ship-counseling/", "Free counseling that does not sell a plan", "/assets/images/household-finances-paperwork-thumb.png", "Hands reviewing financial paperwork with a pen and coffee mug"),
+],
 )
 
 add(
 path="/guides/medigap-open-enrollment/",
-title="Which Medigap Enrollment Window Is Mine?",
+title="Medigap Open Enrollment Is 6 Months Once",
 h1="Medigap open enrollment",
-desc="You get one 6 month Medigap open enrollment when you are 65 or older and you have Part B. It does not repeat every fall.",
+desc="One 6 month Medigap window starts when you are 65 or older and Part B begins. It does not come back every fall.",
+modified="2026-11-21",
+checked="21 Nov 2026",
+image="/assets/images/calculator-tax-forms.png",
+image_alt="Calculator, pen and paperwork on a kitchen table",
+image_caption="Thumbnail for the one time Medigap open enrollment window.",
+compare_html='<aside class="compare" aria-label="Check another Medigap window"><p><strong>After the 6 months, the right gets narrower.</strong> [[/guides/medigap-guaranteed-issue-rights/|Guaranteed issue rights]] are specific situations, and the March 2026 guide usually limits them to certain letters. [[/guides/open-enrollment/|October 15 to December 7]] changes Advantage and drug plans. It does not restart this window. [[/states/new-york/|New York]] and [[/states/california/|California]] add their own Medigap timing.</p></aside>',
 body="""
-<div class="answer"><p><strong>Short version:</strong> Federal law gives you a 6 month Medigap open enrollment period. It starts the first month you have Part B and you are 65 or older. During that window you can buy any Medigap policy the company sells, and the company cannot use medical underwriting to deny you for a pre existing condition.</p></div>
-<p>Medicare.gov says this window is one time. It does not come back every fall the way Medicare open enrollment does. After it ends, a company may refuse to sell you a policy, or charge more, if you do not pass medical underwriting. There are exceptions, called guaranteed issue rights or Medigap protections, for certain situations. The federal page describes those rights and tells you to check your state insurance department, because state law can add more.</p>
-<p>People under 65 who have Medicare because of a disability or ESRD may not be able to buy Medigap until they turn 65. Federal law generally does not require companies to sell Medigap to people under 65. Some states require it anyway. We do not keep a private scoreboard of those state laws. Ask the state insurance department or SHIP, and read the state page for the office we could verify.</p>
-<p>If you buy a Medicare SELECT policy, Medicare.gov says you have 12 months to change your mind and switch to a standard Medigap policy. SELECT plans may require you to use certain hospitals and, in some cases, certain doctors.</p>
-<p>The letter you are allowed to buy also depends on when you were first eligible. Plan C and Plan F are closed to people who became eligible on or after January 1, 2020. That rule is on the [[/guides/medigap-plan-letters/|letters page]], along with the 2026 benefit chart.</p>
+<div class="answer"><p><strong>Short version:</strong> The March 2026 Choosing a Medigap Policy guide says the best time to buy is the 6 month Medigap open enrollment period. It starts the first month you have Part B and you are 65 or older. It is one time. It does not repeat every fall. During it, a company cannot refuse to sell you any Medigap policy it offers, and it cannot use medical underwriting to deny you because of a pre existing condition.</p></div>
+<p>The same guide says you can generally get better prices and more choices in that window, and that a company cannot charge you more because of health problems. Coverage can start right away, with one exception the guide spells out: a pre existing condition. That is a health problem you had before the new policy starts. The company can refuse to cover your out of pocket costs for that condition for up to 6 months. After 6 months, the policy covers it. The exclusion is allowed only if the condition was treated or diagnosed within the 6 months before the policy starts. The guide calls that the look back period. Original Medicare still covers the Medicare covered service during the wait. You pay the Medicare coinsurance or copay until the Medigap wait ends.</p>
+<p>Prior coverage can shorten or remove that wait. The guide says many kinds of health coverage count as creditable coverage, but only if the break was no more than 63 days. If you had at least 6 months of continuous prior creditable coverage, the company cannot make you wait before it covers the pre existing condition. The company, or a [[/guides/ship-counseling/|SHIP counselor]], is who tells you whether a particular plan counts. We will not guess from a plan name.</p>
+<!--NEXT_READS-->
+<h2>What is left after the 6 months</h2>
+<p>Outside the window, the guide says you may pay more, fewer policies may be available, and there is no guarantee a company will sell to you if you do not meet its medical underwriting. The exception is a [[/guides/medigap-guaranteed-issue-rights/|guaranteed issue right]]. If you buy under one of those rights, the guide says the company must cover all pre existing conditions with no waiting period. That is a real difference from open enrollment, where the 6 month wait can still apply. Guaranteed issue usually does not include every letter on the [[/guides/medigap-plan-letters/|letters chart]].</p>
+<p>Some states add their own open enrollment. The guide says so and does not reprint every state statute. [[/states/new-york/|New York]] keeps applications open all year. [[/states/california/|California]] adds a birthday window. [[/states/florida/|Florida]] and [[/states/texas/|Texas]] write the federal 6 months into state rules with their own extras. If your state page does not have a dated Medigap note, we did not have a state specific fact to add, and the federal rule on this page is the one to start from.</p>
+<h2>Under 65, and the second chance at 65</h2>
+<p>Federal law generally does not require companies to sell Medigap to people under 65. The March 2026 guide prints a list of states that, at the time of printing, require companies to offer at least one kind of Medigap policy to people with Medicare under 65. It then says some of those states extend the right to everyone under 65, and others only to people eligible because of disability or end stage renal disease. The guide does not say which state is which. Copying the list onto 30 state pages with the same sentence would not tell a reader anything the list itself does not. Ask the state insurance department. Even in a state that is not on the list, a company may sell voluntarily, often at a higher price and often with medical underwriting. The guide says that too.</p>
+<p>If you already have Part B, you still get this 6 month window when you turn 65. The guide says you will probably have more policies and a lower premium then, and that during that window a company cannot refuse to sell because of a disability or charge more based on health status than it charges other people who are 65. Because Part A or Part B is creditable coverage, the guide says that if you had Medicare for more than 6 months before you turned 65, you may not have a pre existing condition waiting period. That "may" is the guide's word. It is not a promise about a named policy.</p>
+<p>Medicare SELECT is a separate 12 month reconsideration. If you buy a SELECT policy, which can require certain hospitals and sometimes certain doctors, Medicare.gov says you have 12 months to switch to a standard Medigap policy. Plan C and Plan F remain closed to people who became eligible on or after January 1, 2020. You do not have to buy Medigap at all.</p>
 """,
 faqs=[
-("Is Medigap open enrollment the same as October 15 to December 7?", "No. The fall window changes Advantage and drug plans. Medigap open enrollment is a one time 6 month period tied to Part B and age 65."),
-("Can a company turn me down later?", "Yes. After the 6 months, Medicare.gov says the company may deny a policy or charge more based on medical underwriting, unless you have a guaranteed issue right or a state protection."),
+("Is Medigap open enrollment the same as October 15 to December 7?", "No. The fall window changes Advantage and drug plans. Medigap open enrollment is a one time 6 month period tied to Part B and age 65 or older."),
+("Can a company make me wait on a pre existing condition during open enrollment?", "The March 2026 guide says yes, for up to 6 months, and only if the condition was treated or diagnosed in the 6 months before the policy starts. Six months of prior creditable coverage, with a break of no more than 63 days, can remove that wait. A guaranteed issue right removes it outright."),
 ("Do I have to buy Medigap?", "No. It is optional insurance that helps pay Original Medicare costs. This site does not tell you to buy it."),
 ],
 sources=[
+("Choosing a Medigap Policy, CMS product 02110, March 2026", "https://www.medicare.gov/publications/02110-choosing-a-medigap-policy.pdf"),
+("Get ready to buy", "https://www.medicare.gov/supplements-other-insurance/when-can-i-buy-medigap/guaranteed-issue-rights"),
+("When can I buy a Medigap policy?", "https://www.medicare.gov/health-drug-plans/medigap/ready-to-buy/when"),
 ("Medigap basics", "https://www.medicare.gov/health-drug-plans/medigap/basics"),
-("Get ready to buy a Medigap policy", "https://www.medicare.gov/health-drug-plans/medigap/ready-to-buy"),
-("Compare Medigap plan benefits", "https://www.medicare.gov/health-drug-plans/medigap/basics/compare-plan-benefits"),
 ],
-related=[("/guides/medigap-plan-letters/", "Plan letters"), ("/guides/open-enrollment/", "Fall Medicare window"), ("/states/", "State insurance help")],
+related=[("/guides/medigap-guaranteed-issue-rights/", "Later rights to buy"), ("/guides/medigap-plan-letters/", "Plan letters"), ("/guides/open-enrollment/", "Fall Medicare window"), ("/states/", "State insurance help")],
+next_reads=[
+("/guides/medigap-guaranteed-issue-rights/", "When a company must sell after this window", "/assets/images/household-finances-paperwork-thumb.png", "Hands reviewing financial paperwork with a pen and coffee mug"),
+("/guides/medigap-plan-letters/", "What letters A through N pay in 2026", "/assets/images/retirement-tea-papers-thumb.png", "Older hands resting on a mug beside printed charts and papers on a wooden table"),
+("/guides/open-enrollment/", "Why October 15 does not restart Medigap", "/assets/images/household-finances-paperwork-thumb.png", "Hands reviewing financial paperwork with a pen and coffee mug"),
+("/guides/ship-counseling/", "Free help reading a Medigap offer", "/assets/images/household-finances-paperwork-thumb.png", "Hands reviewing financial paperwork with a pen and coffee mug"),
+],
 )
 
 add(
@@ -891,5 +1025,63 @@ next_reads=[
 ("/guides/medicare-costs-2026/", "The 2026 brackets SSA still prints", COST_THUMB_SM, COST_THUMB_ALT),
 ("/guides/general-enrollment-and-penalties/", "How the Part B late penalty is calculated", "/assets/images/piggy-bank-rain-thumb.png", "Pink ceramic piggy bank and coins on a rainy windowsill"),
 ("/guides/part-d/", "Part D costs without the income surcharge", COST_THUMB_SM, COST_THUMB_ALT),
+],
+)
+
+add(
+path="/guides/medigap-guaranteed-issue-rights/",
+title="When Must an Insurer Sell You Medigap?",
+h1="Medigap guaranteed issue rights",
+desc="Federal situations where a Medigap insurer must sell you a policy, which letters, and the 63 day clock. States may add rights.",
+published="2026-11-21",
+modified="2026-11-21",
+checked="21 Nov 2026",
+image="/assets/images/senior-hands-application-table.png",
+image_alt="Older hands and a paper application on a kitchen table in natural light",
+image_caption="AI-generated thumbnail for this guaranteed issue guide.",
+compare_html='<aside class="compare" aria-label="Check another Medigap right"><p><strong>Open enrollment is wider than this list.</strong> During the one time [[/guides/medigap-open-enrollment/|6 month Medigap window]] a company must sell any letter it offers. A guaranteed issue right usually does not. The letter chart is on [[/guides/medigap-plan-letters/|Medigap letters]]. [[/states/new-york/|New York]] keeps applications open all year, which is a state rule, not one of the rows below.</p></aside>',
+body="""
+<div class="answer"><p><strong>Short version:</strong> A guaranteed issue right, which Medicare also calls a Medigap protection, is a limited situation outside Medigap open enrollment when an insurance company must sell you a Medigap policy, must cover pre existing conditions, and cannot charge more because of past or present health problems. The list below is the March 2026 Choosing a Medigap Policy guide, CMS product 02110, developed with the National Association of Insurance Commissioners. It is not a suggestion to drop a plan.</p></div>
+<p>The guide says these are the most common situations under federal law. You may have more rights under state law. It tells you to check the state insurance department, and to call [[/guides/ship-counseling/|SHIP]] before you rely on a row. Massachusetts, Minnesota, and Wisconsin have guaranteed issue rights too, but the policies are the state designs on the [[/states/massachusetts/|Massachusetts]], [[/states/minnesota/|Minnesota]], and [[/states/wisconsin/|Wisconsin]] pages, not the letter chart used everywhere else.</p>
+<p>In the situations below, the guide's "you have the right to buy" column is Medigap Plan A, B, C, D, F, or G sold in your state, unless the row says any policy. Plans C and F are not sold to people new to Medicare on or after January 1, 2020. People who were eligible before that date and have not signed up yet may still be able to buy C or F. People new on or after that date have the right to buy Plan D or G instead of C or F. The live Medicare.gov tool does not match this letter list. That disagreement is its own section, after the table.</p>
+<div class="tablewrap"><table class="list"><thead><tr><th scope="col">You have a guaranteed issue right if</th><th scope="col">What the March 2026 guide says you can buy</th><th scope="col">When you can or must apply</th></tr></thead><tbody>
+<tr><th scope="row">Your Medicare Advantage plan is leaving Medicare, stops care in your area, you move out of its service area, or its network changes in a significant way. Only if you switch to Original Medicare, not to another Advantage plan.</th><td>Plan A, B, C, D, F, or G in your state. The policy cannot start until the Advantage coverage ends.</td><td>As early as 60 days before coverage ends, if you are choosing to leave. Or by the date in the plan's termination notice. No more than 63 days after coverage ends.</td></tr>
+<tr><th scope="row">You have Original Medicare and an employer group plan, including retiree, COBRA, or union coverage, that pays after Medicare, and that plan is ending. With COBRA you can buy right away or wait until COBRA ends.</th><td>Plan A, B, C, D, F, or G in your state.</td><td>No more than 63 days after the latest of three dates: the day coverage ends, the date on the notice that coverage is ending, or the date on a claim denial if that denial is the only way you learn the coverage ended.</td></tr>
+<tr><th scope="row">You have Original Medicare and a Medicare SELECT policy, and you move out of the SELECT service area.</th><td>Plan A, B, C, D, F, or G in your state or in the state you are moving to.</td><td>60 days before the SELECT policy ends, or no more than 63 days after it ends.</td></tr>
+<tr><th scope="row">Trial right. You joined a Medicare Advantage plan or PACE when you were first eligible for Part A at 65, and within the first year you decide to switch to Original Medicare.</th><td>Any Medigap policy sold by a company in your state.</td><td>60 days before coverage ends, or no more than 63 days after. The guide says the right may last an extra 12 months in certain circumstances. It does not list them. Ask the state insurance department.</td></tr>
+<tr><th scope="row">Trial right. You dropped a Medigap policy to join Medicare Advantage, or to switch to Medicare SELECT, for the first time. You have been in that plan less than a year, and you want the Medigap policy back.</th><td>The policy you had, if that company still sells it. If it does not, Plan A, B, C, D, F, or G in your state.</td><td>60 days before coverage ends, or no more than 63 days after. The same note about an extra 12 months, with the details left to the state.</td></tr>
+<tr><th scope="row">Your Medigap company goes bankrupt and you lose coverage, or the policy ends through no fault of your own.</th><td>Plan A, B, C, D, F, or G in your state.</td><td>No more than 63 days after the current Medigap policy ends.</td></tr>
+<tr><th scope="row">You leave a Medicare Advantage plan or drop a Medigap policy because the company has not followed the rules, or it misled you.</th><td>Plan A, B, C, D, F, or G in your state.</td><td>No more than 63 days after coverage ends.</td></tr>
+</tbody></table></div>
+<p>If more than one row applies, the guide says you can choose the guaranteed issue right that works best for your situation. That is a choice among rights the guide already lists. It is not this site picking a letter. Keep copies of letters, notices, emails, or claim denials that have your name on them, and the postmarked envelope, because you may have to attach them to the application as proof.</p>
+<!--NEXT_READS-->
+<h2>The live Medicare.gov tool adds K and L</h2>
+<p>The "When can I buy a Medigap policy?" tool on Medicare.gov, read 21 Nov 2026, does not stop at A, B, C, D, F, and G. On several of the same situations it says you can buy Plan A, B, C, D, F, G, K, or L. Examples from that tool, not from the March booklet: losing Medigap coverage through no fault of your own, including a bankruptcy or a company that did not follow the rules or misled you, is described as a right to A through L except M and N, with 63 days after the Medigap coverage ends. An Advantage plan that is leaving Medicare, or that will no longer cover where you live, is described as a right to those same letters if you switch to Original Medicare, applying 60 days before the end date or no more than 63 days after. The trial right for someone who dropped Medigap to join Advantage says you can get the old policy back if the company still sells it, and otherwise A, B, C, D, F, G, K, or L.</p>
+<p>We are not papering over that. The booklet and the tool were both Medicare.gov on the day we read them, and they do not list the same letters. Until they match, do not treat either page as the only word on K or L. A SHIP counselor or the state insurance department can say which letters a company must offer you. The benefit differences, including the 2026 out of pocket limits on K and L, are on the letters page. This page does not tell you to prefer K or G.</p>
+<h2>What the right does to a pre existing condition</h2>
+<p>Open enrollment and guaranteed issue are not the same on waiting periods. During the [[/guides/medigap-open-enrollment/|6 month window]], the guide allows a company to exclude a pre existing condition for up to 6 months if it was treated or diagnosed in the prior 6 months. If you buy because you have a guaranteed issue right, the guide says the company must cover all pre existing conditions and cannot use a waiting period. Proof of the right is what turns the medical questions on the application into answers the company cannot use to deny you or to change the price. The how to buy page on Medicare.gov, read 21 Nov 2026, says the same thing: give proof, and the company cannot use the medical answers to deny the policy or change the price.</p>
+<p>A Medigap policy still requires Original Medicare. The guide says a company can sell you a policy while you are still in Medicare Advantage only if you are leaving that plan, and it says to ask that the Medigap policy start when the Advantage enrollment ends so there is no gap. It also says it is illegal to sell Medigap to someone the seller knows is in a Medicare Advantage plan, unless that person is switching back to Original Medicare and the Advantage coverage will end before the Medigap starts. The same page says it is illegal to sell Medigap to someone the seller knows has Medicaid, except in limited situations the guide does not list. The when tool says companies generally cannot sell Medigap if you have Medicaid. Those limits are discussed on the [[/guides/medicare-and-medicaid/|Medicare and Medicaid]] page.</p>
+<h2>Under 65 is a different list</h2>
+<p>Federal law generally does not require a company to sell Medigap to people under 65. The March 2026 guide prints the states that, at printing, require at least one kind of Medigap policy for people with Medicare under 65, and then says some of those states limit the right to disability or end stage renal disease. It does not say which state does which. That is why this site did not turn the list into a sentence swapped onto every state page. The guide also says some federal guaranteed issue rights are available to people under 65, and to ask the state about anything beyond that. People under 65 who already have Part B still get a Medigap open enrollment period when they turn 65.</p>
+<p>PACE is one of the trial right rows. It is also its own program, described on the [[/guides/pace-program/|PACE]] page. Losing an Advantage plan in January is not automatically a trial right. The [[/guides/medicare-advantage-open-enrollment/|January through March window]] lets someone already in Advantage switch or return to Original Medicare. The Medigap clock, if there is one, is the 60 and 63 day rule in the table, not the quarter itself.</p>
+""",
+faqs=[
+("Does a guaranteed issue right include every Medigap letter?", "Not in the March 2026 guide. Most rows are Plan A, B, C, D, F, or G. The first trial right, leaving Advantage or PACE in the first year after joining at 65, is any policy the company sells in your state. In both cases the guide's note still closes C and F to people new to Medicare on or after January 1, 2020, and gives them D or G instead. The Medicare.gov tool read 21 Nov 2026 adds K and L on several rows. Confirm the letter with SHIP or the state."),
+("How long do I have to apply?", "The guide's outside limit on these rows is 63 days, measured from coverage ending, from a termination notice, or in the employer row from the latest of three dates. Some rows also let you apply up to 60 days before coverage ends. A Medigap policy bought while leaving Medicare Advantage cannot start until that Advantage coverage ends."),
+("Is this the same as Medigap open enrollment?", "No. Open enrollment is one 6 month period when you are 65 or older and you have Part B, and the company must sell any policy it offers. Guaranteed issue rights are later, narrower situations. Some states add more. This site does not tell you which letter to buy."),
+],
+sources=[
+("Choosing a Medigap Policy, CMS product 02110, March 2026", "https://www.medicare.gov/publications/02110-choosing-a-medigap-policy.pdf"),
+("When can I buy a Medigap policy?", "https://www.medicare.gov/health-drug-plans/medigap/ready-to-buy/when"),
+("How do I buy a Medigap policy?", "https://www.medicare.gov/health-drug-plans/medigap/ready-to-buy/how"),
+("Get ready to buy", "https://www.medicare.gov/supplements-other-insurance/when-can-i-buy-medigap/guaranteed-issue-rights"),
+("SHIP Help", "https://www.shiphelp.org/what-we-do/"),
+],
+related=[("/guides/medigap-open-enrollment/", "The 6 month window"), ("/guides/medigap-plan-letters/", "What the letters cover"), ("/guides/ship-counseling/", "Free counseling"), ("/states/", "Your state")],
+next_reads=[
+("/guides/medigap-open-enrollment/", "The one time 6 month window, before this list", "/assets/images/calculator-tax-forms-thumb.png", "Calculator, pen and paperwork on a kitchen table"),
+("/guides/medigap-plan-letters/", "Which letters the guide is talking about", "/assets/images/retirement-tea-papers-thumb.png", "Older hands resting on a mug beside printed charts and papers on a wooden table"),
+("/guides/medicare-advantage-open-enrollment/", "The January switch is not automatically a trial right", "/assets/images/household-finances-paperwork-thumb.png", "Hands reviewing financial paperwork with a pen and coffee mug"),
+("/guides/ship-counseling/", "Ask SHIP before you rely on a row", "/assets/images/household-finances-paperwork-thumb.png", "Hands reviewing financial paperwork with a pen and coffee mug"),
 ],
 )

@@ -123,7 +123,7 @@ def page(path, title, desc, body, jsonld=None, crumbs=None, noindex=False, legal
 <title>{E(title)}</title><meta name="description" content="{E(desc)}"><link rel="canonical" href="{canon}">
 <meta name="robots" content="{robots}">
 <meta property="og:type" content="{kind}"><meta property="og:site_name" content="{BRAND}"><meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(desc)}"><meta property="og:url" content="{canon}"><meta property="og:image" content="{og_img}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{E(title)}"><meta name="twitter:description" content="{E(desc)}">
-<link rel="icon" href="{u("/favicon.svg")}" type="image/svg+xml"><link rel="stylesheet" href="{u("/assets/style.css")}?v=3">{ldh}{ga_head}
+<link rel="icon" href="{u("/favicon.svg")}" type="image/svg+xml"><link rel="stylesheet" href="{u("/assets/style.css")}?v=4">{ldh}{ga_head}
 </head><body><a class="skip" href="#main">Skip to content</a>
 <div class="banner"><div class="wrap"><p>Independent guide. Not a government site. Not insurance advice. No plan sales and no quote forms.</p></div></div>
 <header class="site"><div class="wrap"><a class="brand" href="{u("/")}"><span class="mark">{LOGO}</span><span>{BRAND}</span></a><nav class="main" aria-label="Main">{nav}</nav></div></header>
@@ -176,10 +176,11 @@ def notice():
 
 def hero_thumb(image, alt, caption=None):
     cap = caption or "Photo used as the article thumbnail."
+    # The whole caption points at the image policy, not only the label.
     return (
         f'<figure class="hero-thumb">'
         f'<a href="{u("/image-policy/")}"><img src="{u(image)}" width="1280" height="720" alt="{E(alt)}"></a>'
-        f'<figcaption><a href="{u("/image-policy/")}">AI generated image</a>. {E(cap)}</figcaption>'
+        f'<figcaption><a href="{u("/image-policy/")}">AI generated image. {E(cap)}</a></figcaption>'
         f'</figure>'
     )
 
@@ -193,6 +194,7 @@ def next_reads_html(items, heading="Keep reading"):
         cards.append(
             f'<li>'
             f'<a href="{u("/image-policy/")}" class="nr-img"><img src="{u(image)}" width="480" height="270" alt="{E(alt)}" loading="lazy"></a>'
+            f'<a class="nr-cap" href="{u("/image-policy/")}">AI generated image</a>'
             f'<a class="nr-title" href="{u(path)}">{E(label)}</a>'
             f'</li>'
         )
@@ -245,7 +247,7 @@ def guide_pages():
 def guides_index():
     groups = [
         ("The two paths", [0, 1, 2]),
-        ("Medigap letters", [3, 19]),
+        ("Medigap letters", [3, 19, 24]),
         ("Drugs", [4, 15]),
         ("Deadlines", [5, 6, 7, 8, 9, 10]),
         ("Costs and help", [11, 22, 23, 12, 13, 14, 16, 17]),
@@ -261,8 +263,8 @@ def guides_index():
         ("Which guide should I read first?", "Start with Original Medicare or Medicare Advantage, then open the deadline or the cost that applies to you."),
         ("How many national guides are here?", f"{len(GUIDES)} explainers on the federal rules, plus a page for each state and the District of Columbia."),
     ]
-    GUIDES_INDEX_UPDATED = "2026-11-20"
-    body = f'<article class="prose"><h1>Guides</h1>{byline(GUIDES_INDEX_UPDATED)}{notice()}<p>{len(GUIDES)} explainers on the federal rules, plus a page for each state and the District of Columbia. Start with the choice between Original Medicare and Medicare Advantage, then open the deadline or the cost that applies to you. The <a href="{u("/guides/medicare-costs-2027/")}">2027 Medicare costs</a> page has the new Part A and Part B amounts from CMS. Income brackets that raise those premiums are on the <a href="{u("/guides/irmaa-brackets-2027/")}">2027 IRMAA</a> page.</p>{"".join(blocks)}<p><a href="{u("/states/")}">State contacts</a> · <a href="{u("/guides/how-to-compare-plans/")}">How to compare plans</a></p>{faq_block(faqs)}</article>'
+    GUIDES_INDEX_UPDATED = "2026-11-21"
+    body = f'<article class="prose"><h1>Guides</h1>{byline(GUIDES_INDEX_UPDATED)}{notice()}<p>{len(GUIDES)} explainers on the federal rules, plus a page for each state and the District of Columbia. Start with the choice between Original Medicare and Medicare Advantage, then open the deadline or the cost that applies to you. The <a href="{u("/guides/medicare-costs-2027/")}">2027 Medicare costs</a> page has the new Part A and Part B amounts from CMS. Income brackets that raise those premiums are on the <a href="{u("/guides/irmaa-brackets-2027/")}">2027 IRMAA</a> page. The <a href="{u("/guides/medigap-guaranteed-issue-rights/")}">guaranteed issue</a> page lists when a company must sell a Medigap policy, and the <a href="{u("/guides/medicare-savings-programs/")}">savings program</a> page has the 2026 income limits Medicare.gov still prints.</p>{"".join(blocks)}<p><a href="{u("/states/")}">State contacts</a> · <a href="{u("/guides/how-to-compare-plans/")}">How to compare plans</a></p>{faq_block(faqs)}</article>'
     desc = "Plain English guides to Medicare plan choices, deadlines, Medigap letters, Part D, PACE, and state help lines."
     write("/guides/", page("/guides/", "Which Medicare Guide Should I Read?", desc, body,
                            [article_ld("Guides", "/guides/", modified=GUIDES_INDEX_UPDATED), faq_ld(faqs)],
@@ -396,13 +398,13 @@ def home():
 <p class="btnrow"><a class="btn" href="{u("/guides/original-medicare-vs-medicare-advantage/")}">Compare the two paths</a> <a class="btn alt" href="{u("/guides/enrollment-periods/")}">See the deadlines</a></p>
 </section>
 <h2>Start here</h2><ul class="cards">{cards}</ul>
-<h2>All {len(GUIDES)} guides</h2><p><a href="{u("/guides/")}">Browse every explainer</a>, from the <a href="{u("/guides/medicare-costs-2027/")}">2027 premium table</a> and the <a href="{u("/guides/irmaa-brackets-2027/")}">2027 IRMAA brackets</a> to Extra Help, PACE, and Medigap open enrollment. When you are ready to look at real contracts, read <a href="{u("/guides/how-to-compare-plans/")}">how to compare plans</a>.</p>
+<h2>All {len(GUIDES)} guides</h2><p><a href="{u("/guides/")}">Browse every explainer</a>, from the <a href="{u("/guides/medicare-costs-2027/")}">2027 premium table</a> and the <a href="{u("/guides/irmaa-brackets-2027/")}">2027 IRMAA brackets</a> to Extra Help, PACE, and Medigap open enrollment. The <a href="{u("/guides/medigap-guaranteed-issue-rights/")}">guaranteed issue rights</a> page is the federal list of times a company must sell a Medigap policy. The <a href="{u("/guides/medicare-savings-programs/")}">2026 Medicare Savings Program limits</a> are the QMB, SLMB, and QI table. When you are ready to look at real contracts, read <a href="{u("/guides/how-to-compare-plans/")}">how to compare plans</a>.</p>
 <h2>How the numbers are chosen</h2>
 <p>A dollar amount appears only when an official page labels it for that year. Private plan premiums and plan names do not appear, because we will not invent them. The editorial rules are public on the <a href="{u("/editorial-policy/")}">editorial and sources policy</a>.</p>
 {faq_block(faqs)}'''
     write("/", page("/", "Which Senior Health Plan Should I Pick?",
                     "Which senior health plan should you look at? Plain English guides to Original Medicare, Advantage, Medigap, Part D, and free counseling.",
-                    body, faq_ld(faqs), lastmod="2026-11-20"))
+                    body, faq_ld(faqs), lastmod="2026-11-21"))
 
 def simple(path, title, desc, h1, inner, legal=False, modified=None):
     body = f'<article class="prose"><h1>{E(h1)}</h1>{inner}</article>'
