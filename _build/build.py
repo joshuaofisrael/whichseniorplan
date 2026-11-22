@@ -113,8 +113,6 @@ def page(path, title, desc, body, jsonld=None, crumbs=None, noindex=False, legal
             "gtag('consent','default',{'ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','analytics_storage':'denied','wait_for_update':500});"
             "gtag('set','ads_data_redaction',true);"
             "</script>"
-            f'<meta name="google-adsense-account" content="{E(ADSENSE_PUB)}">'
-            f'<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={E(ADSENSE_PUB)}" crossorigin="anonymous"></script>'
         )
         consent = f'<script src="{u("/assets/consent.js")}" defer></script>'
     else:
@@ -516,9 +514,7 @@ def images():
 def extras():
     open(os.path.join(ROOT, "CNAME"), "w", encoding="utf-8").write("whichseniorplan.com\n")
     open(os.path.join(ROOT, f"{INDEXNOW_KEY}.txt"), "w", encoding="utf-8").write(INDEXNOW_KEY)
-    open(os.path.join(ROOT, "ads.txt"), "w", encoding="utf-8").write(
-        f"google.com, pub-{ADSENSE_PUB.split('ca-pub-')[-1]}, DIRECT, f08c47fec0942fa0\n"
-    )
+    open(os.path.join(ROOT, "ads.txt"), "w", encoding="utf-8").write("")  # AdSense detached 21 Nov 2026 until the account is approved (see seo-central/site-seo-rules.md). Do not re-add.
     bots = ["*", "Googlebot", "Bingbot", "Mediapartners-Google", "OAI-SearchBot", "ChatGPT-User", "GPTBot", "PerplexityBot", "Perplexity-User", "ClaudeBot", "Claude-SearchBot", "Claude-User", "Google-Extended", "Applebot", "Applebot-Extended", "DuckAssistBot", "Amazonbot", "CCBot", "Bytespider"]
     open(os.path.join(ROOT, "robots.txt"), "w", encoding="utf-8").write("".join(f"User-agent: {b}\nAllow: /\n\n" for b in bots) + f"Sitemap: {BASE}sitemap.xml\n")
     open(os.path.join(ROOT, "sitemap.xml"), "w", encoding="utf-8").write(
